@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="artifacts-file-header">Time,Test Case,Request,Response</Property>
+        <Property name="results-file-header">Time,Test Case,Target,Expected Validation Result,Validation Pass/Fail,Profile Pass/Fail</Property>
+    </Properties>
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+        <PatternLayout pattern="%c - %d - %p - %m %n"/>
+    </Console>
+
+    <File name="debug-text" fileName="${env:SCVP_OUTPUT_PATH}/debug.txt" append="true">
+      <PatternLayout pattern="%c - %d - %p - %m %n"/>
+    </File>
+
+    <File name="client-text" fileName="${env:SCVP_OUTPUT_PATH}/client.txt" append="true">
+        <PatternLayout pattern="%c - %d - %p - %m %n"/>
+    </File>
+
+    <File name="validation-failures-text" fileName="${env:SCVP_OUTPUT_PATH}/validation_failures.txt" append="true">
+        <PatternLayout pattern="%m %n"/>
+    </File>
+
+    <File name="profile-failures-text" fileName="${env:SCVP_OUTPUT_PATH}/profile_failures.txt" append="true">
+        <PatternLayout pattern="%m %n"/>
+    </File>
+
+    <RollingFile name="artifacts-csv"
+                     fileName="${env:SCVP_OUTPUT_PATH}/artifacts.csv"
+                     filePattern="${env:SCVP_OUTPUT_PATH}/artifacts-%d{MM-dd-yyyy}-%i.csv" >
+        <CsvParameterLayout delimiter="," quoteMode="ALL" header="${artifacts-file-header}\n"/>
+        <Policies>
+            <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            <SizeBasedTriggeringPolicy size="10 MB" />
+        </Policies>
+        <DefaultRolloverStrategy max="200" />
+    </RollingFile>
+    <RollingFile name="results-csv"
+                   fileName="${env:SCVP_OUTPUT_PATH}/results.csv"
+                   filePattern="${env:SCVP_OUTPUT_PATH}/results-%d{MM-dd-yyyy}-%i.csv" >
+        <CsvParameterLayout delimiter="," quoteMode="ALL" header="${results-file-header}\n"/>
+        <Policies>
+          <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+          <SizeBasedTriggeringPolicy size="10 MB" />
+        </Policies>
+        <DefaultRolloverStrategy max="200" />
+    </RollingFile>
+
+  </Appenders>
+  <Loggers>
+    <Logger name="gov.gsa.scvp_test.artifacts" level="debug">
+      <AppenderRef ref="artifacts-csv"/>
+    </Logger>
+    <Logger name="gov.gsa.scvp_test.results" level="debug">
+      <AppenderRef ref="results-csv"/>
+    </Logger>
+    <Logger name="gov.gsa.scvp_test.validation-failures" level="debug">
+      <AppenderRef ref="validation-failures-text"/>
+    </Logger>
+    <Logger name="gov.gsa.scvp_test.profile-failures" level="debug">
+      <AppenderRef ref="profile-failures-text"/>
+    </Logger>
+    <Logger name="gov.gsa.scvp_test.client" level="debug">
+      <AppenderRef ref="client-text"/>
+    </Logger>
+    <Logger name="gov.treas.pki.vss.properties.VSSGlobalProperties" level="error">
+      <AppenderRef ref="STDOUT"/>
+    </Logger>
+    <Root>
+        <AppenderRef ref="debug-text"/>
+    </Root>
+  </Loggers>
+</Configuration>
+

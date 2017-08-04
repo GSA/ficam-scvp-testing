@@ -1,0 +1,386 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.3",
+        "title": "VSS REST Service",
+        "description": "**This is a rest web service that validates certificates based on a validation policy, similar to SCVP (RFC 5055)**\n\nValidation Policy Object Identifiers are maintained within the [Treasury SCVP Profile](/vss/docs/treas_scvp_profile_v1.3.pdf).\n\nThis documentation is maintained within [this Swagger.io JSON](/vss/docs/TreasuryVSSAPIv1.3.json).\n\nThe source code of this API is located in [this GitHub repo](https://github.com/GSA/vss).\n"
+    },
+    "basePath": "/vss",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "application/scvp-cv-request",
+        "application/scvp-vp-request",
+        "application/ocsp-request"
+    ],
+    "produces": [
+        "application/json",
+        "application/scvp-cv-response",
+        "application/scvp-vp-response",
+        "application/ocsp-response"
+    ],
+    "tags": [
+        {
+            "name": "rest",
+            "description": "REST Certificate Validation"
+        },
+        {
+            "name": "pkix",
+            "description": "Native OCSP and SCVP Services"
+        }
+    ],
+    "paths": {
+        "/rest": {
+            "post": {
+                "tags": [
+                    "rest"
+                ],
+                "summary": "REST GET Request",
+                "description": "REST GET Request",
+                "operationId": "restPost",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "request",
+                        "in": "body",
+                        "description": "The VSS Request JSON you want to post",
+                        "schema": {
+                            "$ref": "#/definitions/validationRequest"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The validation response",
+                        "schema": {
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/validationResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/pkix/{ocspRequest}": {
+            "get": {
+                "tags": [
+                    "pkix"
+                ],
+                "summary": "OCSP GET Request",
+                "description": "OCSP GET Request",
+                "operationId": "ocspGet",
+                "consumes": [
+                    "application/ocsp-request"
+                ],
+                "produces": [
+                    "application/ocsp-response"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ocspRequest",
+                        "description": "The base64 encoded OCSP request",
+                        "required": true,
+                        "type": "string",
+                        "format": "byte"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                }
+            }
+        },
+        "/pkix": {
+            "post": {
+                "tags": [
+                    "pkix"
+                ],
+                "summary": "OCSP/SCVP POST Request",
+                "description": "OCSP/SCVP POST Request",
+                "operationId": "ocspScvpPost",
+                "consumes": [
+                    "application/ocsp-request",
+                    "application/scvp-cv-request",
+                    "application/scvp-vp-request"
+                ],
+                "produces": [
+                    "application/ocsp-response",
+                    "application/scvp-cv-response",
+                    "application/scvp-vp-response"
+                ],
+                "parameters": [
+                    {
+                        "name": "DER Encoded Request",
+                        "description": "The DER encoded OCSP or SCVP request",
+                        "in": "body",
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "validationRequest": {
+            "type": "object",
+            "description": "The request syntax to validate a certificate against a validationPolicy, with \"want back\" options.",
+            "properties": {
+                "validationPolicy": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "The validation policy OID.  All known validation policies for this service are documented in the Treasury SCVP Profile (link in service description).  The follwing enum provides a list of all the current  production validation policies.",
+                    "default": "1.3.6.1.5.5.7.19.1",
+                    "enum": [
+                        "1.3.6.1.5.5.7.19.1",
+                        "2.16.840.1.101.3.2.1.3.1",
+                        "2.16.840.1.101.3.2.1.3.2",
+                        "2.16.840.1.101.3.2.1.3.6",
+                        "2.16.840.1.101.3.2.1.3.7",
+                        "2.16.840.1.101.3.2.1.3.8",
+                        "2.16.840.1.101.3.2.1.3.13",
+                        "2.16.840.1.101.3.2.1.3.14",
+                        "2.16.840.1.101.3.2.1.3.15",
+                        "2.16.840.1.101.3.2.1.3.16",
+                        "2.16.840.1.101.3.2.1.3.17",
+                        "2.16.840.1.101.3.2.1.3.18",
+                        "2.16.840.1.101.3.2.1.3.19",
+                        "2.16.840.1.101.3.2.1.3.20",
+                        "2.16.840.1.101.3.2.1.3.36",
+                        "2.16.840.1.101.3.2.1.3.39",
+                        "2.16.840.1.101.3.2.1.3.40",
+                        "2.16.840.1.101.3.2.1.3.41",
+                        "2.16.840.1.101.10.2.18.2.1.1",
+                        "2.16.840.1.101.10.2.18.2.1.2",
+                        "2.16.840.1.101.10.2.18.2.1.3",
+                        "2.16.840.1.101.10.2.18.2.1.4",
+                        "2.16.840.1.101.10.2.18.2.1.11"
+                    ]
+                },
+                "wantBackList": {
+                    "type": "array",
+                    "minItems": 0,
+                    "maxItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "wantBackTypeToken": {
+                                "type": "string",
+                                "description": "The wantback you desire",
+                                "default": "certPath",
+                                "enum": [
+                                    "certPath",
+                                    "revocationInfo"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "x509CertificateList": {
+                    "type": "array",
+                    "description": "An array of 1..256 x509Certificate objects",
+                    "minItems": 1,
+                    "maxItems": 256,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "x509Certificate": {
+                                "description": "A base64 encoded X509 Certificate",
+                                "type": "string",
+                                "format": "byte",
+                                "maxLength": 8192,
+                                "default": "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"
+                            }
+                        },
+                        "required": [
+                            "x509Certificate"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "validationPolicy",
+                "wantBackList",
+                "x509CertificateList"
+            ]
+        },
+        "validationResponse": {
+            "type": "object",
+            "description": "The response syntax corresponding to a validationRequest",
+            "properties": {
+                "transactionResult": {
+                    "type": "object",
+                    "description": "The result of the transaction.",
+                    "properties": {
+                        "transactionResultToken": {
+                            "type": "string",
+                            "description": "A simple status indicator describing the overall result of the transaction.  ",
+                            "enum": [
+                                "SUCCESS",
+                                "FAIL",
+                                "SERVICEFAIL"
+                            ]
+                        },
+                        "transactionResultText": {
+                            "type": "string",
+                            "description": "The transaction result details."
+                        }
+                    },
+                    "required": [
+                        "transactionResultToken",
+                        "transactionResultText"
+                    ]
+                },
+                "validationResult": {
+                    "type": "object",
+                    "properties": {
+                        "resultsByCertificateList": {
+                            "type": "array",
+                            "description": "An ordered array of validation results based on the x509CertificateList submitted in the validationRequest",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "resultByCertificate": {
+                                        "type": "object",
+                                        "properties": {
+                                            "vssCertId": {
+                                                "type": "string",
+                                                "description": "A unique identifier for the certificate, which is the SHA-256 digest of the certificate in Hex."
+                                            },
+                                            "x509SubjectName": {
+                                                "type": "string",
+                                                "description": "The \"subject\" of the certificate."
+                                            },
+                                            "x509IssuerName": {
+                                                "type": "string",
+                                                "description": "The \"issuer\" of the certificate."
+                                            },
+                                            "x509SerialNumber": {
+                                                "type": "string",
+                                                "description": "The serial number of the certificate."
+                                            },
+                                            "x509SubjectAltName": {
+                                                "type": "array",
+                                                "description": "The subjectAltName extention values in an array.",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "validationTime": {
+                                                "type": "string",
+                                                "description": "The time of validation by the service."
+                                            },
+                                            "nextUpdate": {
+                                                "type": "string",
+                                                "description": "The time new validation data will be available."
+                                            },
+                                            "validationResultToken": {
+                                                "type": "string",
+                                                "description": "A simple indicator providing the status of the certificate.",
+                                                "enum": [
+                                                    "SUCCESS",
+                                                    "FAIL",
+                                                    "SERVICEFAIL"
+                                                ]
+                                            },
+                                            "validationSuccessData": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "wantBackResultList": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "enum": [
+                                                                {
+                                                                    "$ref": "#/definitions/certPath"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/definitions/revocationInfo"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "transactionResult"
+            ]
+        },
+        "certPath": {
+            "type": "object",
+            "description": "The certificate path, with trust anchor omitted.",
+            "properties": {
+                "x509CertificateList": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "x509Certificate": {
+                                "type": "string",
+                                "format": "byte"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "revocationInfo": {
+            "type": "object",
+            "description": "The OCSP responses for all certificates in the path.",
+            "properties": {
+                "ocspResponseList": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ocspResponse": {
+                                "type": "string",
+                                "format": "byte"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
