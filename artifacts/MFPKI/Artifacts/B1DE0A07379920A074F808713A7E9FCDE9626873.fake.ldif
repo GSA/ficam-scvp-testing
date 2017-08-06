@@ -1,0 +1,38 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=SSA,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: SSA
+
+DN: ou=Social Security Administration Certification Authority,ou=SSA,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: Social Security Administration Certification Authority
+certificateRevocationList;binary:: MIIDbzCCAlcCAQEwDQYJKoZIhvcNAQELBQAwgYUxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxDDAKBgNVBAsTA1NTQTE/MD0GA1UECxM2
+ U29jaWFsIFNlY3VyaXR5IEFkbWluaXN0cmF0aW9uIENlcnRpZmljYXRpb24gQXV0aG9yaXR5
+ Fw0xNzA1MTUxMDI1NTFaFw0xOTA0MTgxNTA2NDdaoIIBmzCCAZcwggFkBgNVHRwBAf8EggFY
+ MIIBVKCCAU2gggFJpIGZMIGWMQswCQYDVQQGEwJVUzENMAsGA1UEChMETW9jazEYMBYGA1UE
+ ChMPVS5TLiBHb3Zlcm5tZW50MQwwCgYDVQQLEwNTU0ExPzA9BgNVBAsTNlNvY2lhbCBTZWN1
+ cml0eSBBZG1pbmlzdHJhdGlvbiBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTEPMA0GA1UEAxMG
+ Q1JMMzY0hoGqbGRhcDovL3NzcGxkYXAudHJlYXMuZ292LnRlc3QvY249Q1JMMzY0LG91PVNv
+ Y2lhbCUyMFNlY3VyaXR5JTIwQWRtaW5pc3RyYXRpb24lMjBDZXJ0aWZpY2F0aW9uJTIwQXV0
+ aG9yaXR5LG91PVNTQSxvPVUuUy4lMjBHb3Zlcm5tZW50LG89TW9jayxjPVVTP2NlcnRpZmlj
+ YXRlUmV2b2NhdGlvbkxpc3SBAf8wCwYDVR0UBAQCAi5LMCAGA1UdIwQZMBeAFRbN1s5/zxf5
+ fiGF9LHnLDP/EEUJ/zANBgkqhkiG9w0BAQsFAAOCAQEAMNkctxzZbjkivTHwk5rRLFuYPCvk
+ 7WXyoaiItpvu0Go9Opm4DD8eXZQGrKxJCjI+0/6LBhYQ7MUmnl64jtQzS+hwdokOM23/iQ7a
+ s/SNtL1zm13kaLa4E+0/EOg7o6wT76v6ckByGHJgdISxuU/rUWGcOdDYnLg+Ghi7XwSn37jJ
+ kKKtrQoXhWMmV+5eRNoYjNxBbbUDnHpr9Pg9UIpR5HA1VuDepNQgsQvm7CjYrI4+Bu/kQIkq
+ enBhpKLYdqRld9XVPAg7AaOeUgoQyDTXI6JOrC60aFpaRBcrEPYpxCOLN826Bp+K3tw+itnX
+ XfOP+2G8B13NWdcEWJgYvmQ2vg==
+ 

@@ -1,0 +1,32 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=Entrust,o=Mock,c=US
+objectClass: organization
+o: Entrust
+
+DN: ou=Certification Authorities,o=Entrust,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=Entrust Managed Services Demo FRoot CA,ou=Certification Authorities,o=Entrust,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: Entrust Managed Services Demo FRoot CA
+certificateRevocationList;binary:: MIICQjCCASoCAQEwDQYJKoZIhvcNAQELBQAwgYMxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRAwDgYDVQQKEwdFbnRydXN0MSIwIAYDVQQLExlDZXJ0aWZpY2F0aW9uIEF1dGhvcml0
+ aWVzMS8wLQYDVQQLEyZFbnRydXN0IE1hbmFnZWQgU2VydmljZXMgRGVtbyBGUm9vdCBDQRcN
+ MTcwNTE1MDc1ODU4WhcNMTgwNjI5MTcxOTQ5WjA/MD0CBFAUg4kXDTEzMDEyNTE1MjIwNFow
+ JjAKBgNVHRUEAwoBATAYBgNVHRgEERgPMjAxMzAxMjQyMDIyMDBaoDEwLzALBgNVHRQEBAIC
+ Q08wIAYDVR0jBBkwF4AVaZe+dnB20c6/QexDCpMsM3GXyjT/MA0GCSqGSIb3DQEBCwUAA4IB
+ AQBwxA+yM4/SmvP0OLygYKkCcSVPVOFgCi7/uKzaN+leHjKGlRKrz1BD8pscAlGGPnP79Z1/
+ rYd5h+XbTrrjL1RD5M3V4tbF60Q9LnQYM/9O8I1JAUIJqe1yRpP+2wAhLJIPnsIALZsmGCrd
+ ugpIbL3fVursFV9ytZdVtYM2hfySiZ9CL6n8hjFwjMSbfNJHxJu/HB/UBF/jS5Ze64L/oO8D
+ G4DTFn8k7n+d5t+2nReH13h2086+FtNysivxfsyazQjiGiYkY92nn0ywHvHdKciO0547FBBW
+ U1+kSXHlvvd0JUcrBXiGEVtLhNW46Es5ODA0PkIH2JGitKgO54SX158N
+ 

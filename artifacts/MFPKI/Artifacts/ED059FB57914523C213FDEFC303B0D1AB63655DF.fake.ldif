@@ -1,0 +1,43 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=Department of Homeland Security,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Department of Homeland Security
+
+DN: ou=Certification Authorities,ou=Department of Homeland Security,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=DHS CA4,ou=Certification Authorities,ou=Department of Homeland Security,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: DHS CA4
+certificateRevocationList;binary:: MIIDnzCCAocCAQEwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxKDAmBgNVBAsTH0RlcGFydG1lbnQgb2Yg
+ SG9tZWxhbmQgU2VjdXJpdHkxIjAgBgNVBAsTGUNlcnRpZmljYXRpb24gQXV0aG9yaXRpZXMx
+ EDAOBgNVBAsTB0RIUyBDQTQXDTE3MDUxNTEwNTYxOFoXDTE5MDQxODE1MDY0N1qgggG6MIIB
+ tjCCAYMGA1UdHAEB/wSCAXcwggFzoIIBbKCCAWikgaowgacxCzAJBgNVBAYTAlVTMQ0wCwYD
+ VQQKEwRNb2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxKDAmBgNVBAsTH0RlcGFydG1l
+ bnQgb2YgSG9tZWxhbmQgU2VjdXJpdHkxIjAgBgNVBAsTGUNlcnRpZmljYXRpb24gQXV0aG9y
+ aXRpZXMxEDAOBgNVBAsTB0RIUyBDQTQxDzANBgNVBAMTBkNSTDgzMoaBuGxkYXA6Ly9sZGFw
+ MDEuZGltYy5kaHMuZ292LnRlc3QvY249Q1JMODMyLG91PURIUyUyMENBNCxvdT1DZXJ0aWZp
+ Y2F0aW9uJTIwQXV0aG9yaXRpZXMsb3U9RGVwYXJ0bWVudCUyMG9mJTIwSG9tZWxhbmQlMjBT
+ ZWN1cml0eSxvPVUuUy4lMjBHb3Zlcm5tZW50LG89TW9jayxjPVVTP2NlcnRpZmljYXRlUmV2
+ b2NhdGlvbkxpc3SBAf8wCwYDVR0UBAQCAjIzMCAGA1UdIwQZMBeAFXzDSly6Hzarg1F99ODl
+ DpB/HBNB/zANBgkqhkiG9w0BAQsFAAOCAQEASPQZ8VY0mlbMCUERyDRSHG4hOqA0oP0XyBHV
+ bT/h+zURK5NEuwTh7mDnMY5Tna78Z1RloVOKpNY5DBhqsNyVU+ET0CiIXWgncu8rmUjwyCzD
+ v1nCP+1SaOHFQqmTEB0O7QkYLnQBg9BEjdvJA0UvXCNDRK06lw7CGBlJXivlIm2WGrUAjE/j
+ +Udewxv5JHGswh6m3Evil+zsVlG6QqpsWC9FGcob2DZz8g6A+q/TBbUdoIADQ3GSl5CWOMN8
+ kAMIMphX+v8lyFMUxVw/ppwBAXSv11gF+hgWd/MScjw46pf97crcG6WqARo324aYfZB3ux+k
+ xIs7RwuxrM24QHD5Pw==
+ 

@@ -1,0 +1,32 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=CertiPath LLC,o=Mock,c=US
+objectClass: organization
+o: CertiPath LLC
+
+DN: ou=Certification Authorities,o=CertiPath LLC,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: cn=CertiPath Common Policy Root Certification Authority - G2,ou=Certification Authorities,o=CertiPath LLC,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: CertiPath Common Policy Root Certification Authority - G2
+certificateRevocationList;binary:: MIICGTCCAQECAQEwDQYJKoZIhvcNAQELBQAwgZwxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRYwFAYDVQQKEw1DZXJ0aVBhdGggTExDMSIwIAYDVQQLExlDZXJ0aWZpY2F0aW9uIEF1
+ dGhvcml0aWVzMUIwQAYDVQQDEzlDZXJ0aVBhdGggQ29tbW9uIFBvbGljeSBSb290IENlcnRp
+ ZmljYXRpb24gQXV0aG9yaXR5IC0gRzIXDTE3MDUxMDAwMDAwMFoXDTE5MTIxNTE1NTEyMlqg
+ MDAuMCAGA1UdIwQZMBeAFQrKR1Pot0Tk+B6VDNlzPtWEi4Pe/zAKBgNVHRQEAwIBczANBgkq
+ hkiG9w0BAQsFAAOCAQEAWUrb/+Rv3SUzMNqNIheOWGOdhLHOJ4nAXf+8/LVjOsz6YdXtNnPQ
+ 2hH1b1iPw7Wwzw2aIg68LYn4matnI0cCzD9pTWqTPXPxa5W0NMxCxRy7PalUWMOmDqjyMi1T
+ PWIB7QHQnENW/bR2Muf6dmTmLa+0bDGscMYUugV007YPsSnPQHEetimjRW1SV6MYuzjLjXtJ
+ rKee5oem1iyyvHz7uLjVZDLwATJn+kVzGFWIpezDi4qv0cBbFnn5dV1kWHED3Jx9ymYhY9w4
+ 5qPZucjS7WuzgcnpxoWH+tc4uIpDJy4EcpUaiPSf8LEeACV09cSoGBc3nj5pWgidJE9VUzea
+ nQ==
+ 

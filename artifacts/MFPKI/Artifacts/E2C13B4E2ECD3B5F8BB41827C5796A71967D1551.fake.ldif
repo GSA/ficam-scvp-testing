@@ -1,0 +1,31 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=ECA,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: ECA
+
+DN: cn=ECA Root CA 2,ou=ECA,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: ECA Root CA 2
+certificateRevocationList;binary:: MIIB7jCB1wIBATANBgkqhkiG9w0BAQUFADBcMQswCQYDVQQGEwJVUzENMAsGA1UEChMETW9j
+ azEYMBYGA1UEChMPVS5TLiBHb3Zlcm5tZW50MQwwCgYDVQQLEwNFQ0ExFjAUBgNVBAMTDUVD
+ QSBSb290IENBIDIXDTE3MDUwMjE2NDc1MVoXDTE5MTExNTE1NTQwNVowFDASAgEZFw0xNTEy
+ MDExNjA1MzVaoDEwLzAgBgNVHSMEGTAXgBXt5IfQJ8RQ5oQ698z36zpJ/FJOIf8wCwYDVR0U
+ BAQCAgDiMA0GCSqGSIb3DQEBBQUAA4IBAQCM9/jMLNAX3eA8Mk46rQscE0Y7pdqzaXqIZ5rc
+ fbvos8XR2b0a6G3l6vUpkIz1fVVTLPerDBtqprAPY9UjKE341YENPas8GffTC15JvJFQDVTl
+ TDHaxDEGZC4sUN7+tWcGma7BRgiX/C41Wd8l+XxpBtwVF9FvRYhzQaLUVMymTNtEzhW4tPSL
+ N1/Rx4NJFqmqOTiYuMDOhK0ydaqOqCtHKzwKuFXmSzRVzhTUFfk05PIL339D0s57rJNpS826
+ 4O3XqVc7JDgHILCKtBEWbJrgNcloeul9R5a7AypFtn/dXrFJmmmO7+vJx8mtkPHHMfs2M7Gx
+ XyB2+J+0gOYVkqqb
+ 

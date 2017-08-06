@@ -1,0 +1,42 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=NASA,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: NASA
+
+DN: ou=Certification Authorities,ou=NASA,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=NASA Operational CA,ou=Certification Authorities,ou=NASA,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: NASA Operational CA
+certificateRevocationList;binary:: MIIDZjCCAk4CAQEwDQYJKoZIhvcNAQELBQAwgYcxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxDTALBgNVBAsTBE5BU0ExIjAgBgNVBAsT
+ GUNlcnRpZmljYXRpb24gQXV0aG9yaXRpZXMxHDAaBgNVBAsTE05BU0EgT3BlcmF0aW9uYWwg
+ Q0EXDTE3MDUxNTEyMTkwNFoXDTE5MDQxODE1MDY0N1qgggGQMIIBjDCCAVkGA1UdHAEB/wSC
+ AU0wggFJoIIBQqCCAT6kgZswgZgxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRNb2NrMRgwFgYD
+ VQQKEw9VLlMuIEdvdmVybm1lbnQxDTALBgNVBAsTBE5BU0ExIjAgBgNVBAsTGUNlcnRpZmlj
+ YXRpb24gQXV0aG9yaXRpZXMxHDAaBgNVBAsTE05BU0EgT3BlcmF0aW9uYWwgQ0ExDzANBgNV
+ BAMTBkNSTDQ2OYaBnWxkYXA6Ly9sYy5uYXNhLmdvdi50ZXN0L2NuPUNSTDQ2OSxvdT1OQVNB
+ JTIwT3BlcmF0aW9uYWwlMjBDQSxvdT1DZXJ0aWZpY2F0aW9uJTIwQXV0aG9yaXRpZXMsb3U9
+ TkFTQSxvPVUuUy4lMjBHb3Zlcm5tZW50LG89TW9jayxjPVVTP2NlcnRpZmljYXRlUmV2b2Nh
+ dGlvbkxpc3SBAf8wCwYDVR0UBAQCAiXfMCAGA1UdIwQZMBeAFYU/d+TSelHpVk6NTcSdyF7V
+ 2ER1/zANBgkqhkiG9w0BAQsFAAOCAQEAHzA9+gJ07iEC5uCoviL6bAZZknRqLx4VfC4F2ve5
+ Q4xkMNEePn+4cBvDC7KZ0XG9ZvWT05rfhmHPMRkxZJH/Y4g82cAv2HAtE2MWXAaxsvpcVnNq
+ 9dIYMqxZSMSHDjNAIrnvttgfhJ4r/AqAua+R3fmxwJVQMkt6VZwpP1QMvWIky/lXhr80GkuX
+ lCfnZQgRtetQVgxqr2W1UNq/qEvlpmw8fNv0ZfTl4uZGGKPQOsD1AVVMIcghLvu5zQ1EpR5q
+ W6Z4zu2HGEhC9fN1j3F3mMZ4oK512ytwu3xWh/iUK5iOZan8+J2TwksqSSyo1Zmwjq2X4AbD
+ NMsIL7tF5yDITA==
+ 

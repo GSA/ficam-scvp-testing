@@ -1,0 +1,32 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=U.S. Nuclear Regulatory Commission,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: U.S. Nuclear Regulatory Commission
+
+DN: cn=NRC SSP Device CA G2,ou=U.S. Nuclear Regulatory Commission,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: NRC SSP Device CA G2
+certificateRevocationList;binary:: MIICMzCCARsCAQEwDQYJKoZIhvcNAQELBQAwgYIxCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxKzApBgNVBAsTIlUuUy4gTnVjbGVhciBS
+ ZWd1bGF0b3J5IENvbW1pc3Npb24xHTAbBgNVBAMTFE5SQyBTU1AgRGV2aWNlIENBIEcyFw0x
+ NzA1MTUxMjE0NDRaFw0yMDEyMDkxOTEwMjFaMDEwLwIQEe9gO53j4HH0GaQDMZAFuRcNMTUw
+ NjAyMTk1MDA4WjAMMAoGA1UdFQQDCgEBoDEwLzAgBgNVHSMEGTAXgBUctrPg9DzBn177GyEu
+ XaF/hY/msP8wCwYDVR0UBAQCAkEtMA0GCSqGSIb3DQEBCwUAA4IBAQCt4rLWRe3JEiyEAl4g
+ kP1JWAfKmwNn/PvyRxrDhYtmdeJkqKnO9yL4Ijt36R7oYyypdRtyZz/3BaoGlaN5S3958Nwv
+ sTSJFdoBbVnVrpJGoxWzjPj/XypRSVg+L8InW+rLqsB8pQewtoTU9bBYKeCBzBzAZZFk5MBy
+ xdANiYRUZUx/ftwhI9/LDyaR+q0CbRVTtRJmEZXXh9p4bhAj/T4hYYyPlKtYqUBXi1RLaJe6
+ p/glptr/3vziv4FVBVfHSuw7K0CNh14RSxEFyVt5nQ4645aFychZB+GE5MPm+ksOFFVlJrSl
+ 78iVDCXmiDCY3B7ZUfjonK1CRQBcnEYs8IUS
+ 

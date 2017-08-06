@@ -1,0 +1,65 @@
+DN: dc=sbu
+objectClass: domain
+dc: sbu
+
+DN: dc=Mock,dc=sbu
+objectClass: domain
+dc: Mock
+
+DN: dc=state,dc=Mock,dc=sbu
+objectClass: domain
+dc: state
+
+DN: cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Configuration
+
+DN: cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Services
+
+DN: cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Public Key Services
+
+DN: cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: AIA
+
+DN: cn=U.S. Department of State AD Root CA,cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: U.S. Department of State AD Root CA
+cACertificate;binary:: MIIGpDCCBYygAwIBAgICQ1wwDQYJKoZIhvcNAQELBQAwaDELMAkGA1UEBhMCVVMxDTALBgNV
+ BAoTBE1vY2sxGDAWBgNVBAoTD1UuUy4gR292ZXJubWVudDENMAsGA1UECxMERlBLSTEhMB8G
+ A1UEAxMYRmVkZXJhbCBDb21tb24gUG9saWN5IENBMB4XDTE3MDEyNzE1MDEwNFoXDTMwMTIw
+ MTE2NDUyN1owgccxEzARBgoJkiaJk/IsZAEZFgNzYnUxFDASBgoJkiaJk/IsZAEZFgRNb2Nr
+ MRUwEwYKCZImiZPyLGQBGRYFc3RhdGUxFjAUBgNVBAMTDUNvbmZpZ3VyYXRpb24xETAPBgNV
+ BAMTCFNlcnZpY2VzMRwwGgYDVQQDExNQdWJsaWMgS2V5IFNlcnZpY2VzMQwwCgYDVQQDEwNB
+ SUExLDAqBgNVBAMTI1UuUy4gRGVwYXJ0bWVudCBvZiBTdGF0ZSBBRCBSb290IENBMIIBIjAN
+ BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtVbINEPuSvtOD3ifozze66bhrVA08bVbHu+T
+ tlBRLbyg1uc+iv+YLMLO8Rnw8W+bQXdezEm5UqOmNTsYMNMsS6soe8cNs3w/swwmTaS70ezi
+ thIZoHOseT5oWVcWBppVfmGZjovtjNXVdEmciNIkcD18aWASlQM9EayDL2a4xQwV6zeTpFvt
+ VOo6DMYIHQ3Q5ISvbRxyeWQp6oXIvMfuRLRODkVznPm1RpU+b4Fuj4aJv/gU1E4enEBqCJ3g
+ 31JxBfxtbwsq8uZo70mEWSVthCi80JhHogfjT3/criL+qdZYgpc/XM3iR/2UbNkwNE+WMMuw
+ 5Li0KGSwW30Exax7WQIDAQABo4IC9jCCAvIwDwYDVR0TAQH/BAUwAwEB/zCBlwYDVR0gBIGP
+ MIGMMAwGCmCGSAFlAwIBAwIwDAYKYIZIAWUDAgEDDTAMBgpghkgBZQMCAQMBMAwGCmCGSAFl
+ AwIBAwYwDAYKYIZIAWUDAgEDBzAMBgpghkgBZQMCAQMIMAwGCmCGSAFlAwIBAxAwDAYKYIZI
+ AWUDAgEDETAMBgpghkgBZQMCAQMnMAwGCmCGSAFlAwIBAyQwVAYIKwYBBQUHAQEESDBGMEQG
+ CCsGAQUFBzAChjhodHRwOi8vaHR0cC5mcGtpLmdvdi50ZXN0L2ZjcGNhL2NhQ2VydHNJc3N1
+ ZWRUb2ZjcGNhLnA3YzCBwQYDVR0hBIG5MIG2MBgGCmCGSAFlAwIBAwEGCmCGSAFlAwIBBgEw
+ GAYKYIZIAWUDAgEDAgYKYIZIAWUDAgEGAjAYBgpghkgBZQMCAQMGBgpghkgBZQMCAQYDMBgG
+ CmCGSAFlAwIBAwcGCmCGSAFlAwIBBgwwGAYKYIZIAWUDAgEDEAYKYIZIAWUDAgEGBDAYBgpg
+ hkgBZQMCAQMIBgpghkgBZQMCAQYlMBgGCmCGSAFlAwIBAyQGCmCGSAFlAwIBBiYwWAYIKwYB
+ BQUHAQsETDBKMEgGCCsGAQUFBzAFhjxodHRwOi8vY3Jscy5wa2kuc3RhdGUuZ292LnRlc3Qv
+ U0lBL0NlcnRzSXNzdWVkQnlBRFJvb3RDQS5wN2MwKQYDVR0eAQH/BB8wHaEbMBmkFzAVMRMw
+ EQYKCZImiZPyLGQBGRYDbWlsMAwGA1UdJAQFMAOBAQAwCgYDVR02BAMCAQAwDgYDVR0PAQH/
+ BAQDAgEGMCAGA1UdIwQZMBeAFa0MenVc5fOYxHmYDqwo/Zf05wL8/zA6BgNVHR8EMzAxMC+g
+ LaArhilodHRwOi8vaHR0cC5mcGtpLmdvdi50ZXN0L2ZjcGNhL2ZjcGNhLmNybDAeBgNVHQ4E
+ FwQVb4P+glBkZXc+/d8Dms4p0S8wzOz/MA0GCSqGSIb3DQEBCwUAA4IBAQA1D9j75oRzJP+X
+ MOes3K1kXtkjZm7ac8/RQSBFDdgvGnCSCtyder975MAFW+otXAp7x5ZKSM6FSqhJCrltM/mz
+ wHz8WCUc1x9H4jRpUJvSrObWvOYPL3J65tC/p3Y2IOjr67Bwzc5IriecWZIuCZSP5GFPUMok
+ SVLKDSDvLYXrRQOmBDaBvEPbRFLawHLlZKDcKUH9WhTyDzu94CVbeneRaymeXZFKopOqmtXU
+ IMZYJwabkQSBRYOW9a9/ayT1RSJh34/jPmdbgA3U0ri+nwGSxhs6sFNlopeekNUFKpiJnsgT
+ YRFriBHIomAPfHvwnOPHjYTpzkH1s9PsO49Q15y2
+ 

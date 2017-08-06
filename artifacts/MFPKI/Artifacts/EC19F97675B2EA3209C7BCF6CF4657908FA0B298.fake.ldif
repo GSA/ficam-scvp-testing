@@ -1,0 +1,48 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Department of the Treasury
+
+DN: ou=Certification Authorities,ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=US Treasury Root CA,ou=Certification Authorities,ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: US Treasury Root CA
+authorityRevocationList;binary:: MIIErTCCApUCAQEwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxIzAhBgNVBAsTGkRlcGFydG1lbnQgb2Yg
+ dGhlIFRyZWFzdXJ5MSIwIAYDVQQLExlDZXJ0aWZpY2F0aW9uIEF1dGhvcml0aWVzMRwwGgYD
+ VQQLExNVUyBUcmVhc3VyeSBSb290IENBFw0xNzA1MDExNTIzNDVaFw0xOTA0MTgxNTA2NDda
+ oIIBwTCCAb0wggGKBgNVHRwBAf8EggF+MIIBeqCCAXOgggFvpIGvMIGsMQswCQYDVQQGEwJV
+ UzENMAsGA1UEChMETW9jazEYMBYGA1UEChMPVS5TLiBHb3Zlcm5tZW50MSMwIQYDVQQLExpE
+ ZXBhcnRtZW50IG9mIHRoZSBUcmVhc3VyeTEiMCAGA1UECxMZQ2VydGlmaWNhdGlvbiBBdXRo
+ b3JpdGllczEcMBoGA1UECxMTVVMgVHJlYXN1cnkgUm9vdCBDQTENMAsGA1UEAxMEQ1JMMYaB
+ umxkYXA6Ly9sZGFwLnRyZWFzLmdvdi50ZXN0L2NuPUNSTDEsb3U9VVMlMjBUcmVhc3VyeSUy
+ MFJvb3QlMjBDQSxvdT1DZXJ0aWZpY2F0aW9uJTIwQXV0aG9yaXRpZXMsb3U9RGVwYXJ0bWVu
+ dCUyMG9mJTIwdGhlJTIwVHJlYXN1cnksbz1VLlMuJTIwR292ZXJubWVudCxvPU1vY2ssYz1V
+ Uz9hdXRob3JpdHlSZXZvY2F0aW9uTGlzdIIB/zALBgNVHRQEBAICAOowIAYDVR0jBBkwF4AV
+ F0u4Jrppeq0SUFdFMZ5Xu3Sl2i//MA0GCSqGSIb3DQEBCwUAA4ICAQBLEiPxSbrbaklkrwNV
+ fWM0aX6K6GmoHsNbX1pHKICBudKq7iNutezo5AFieQhypzHBmQpWKwXHjS5D/t51aLohSQmQ
+ OMAxZaycBJ2iBLuMuP9b20q18QlDs1caYtMKSDQC5xBjrSrh568raWy4fA5xgFRlSOx0lZzX
+ kqZ1iy1ysDoDifWhDPqHp3GpcmvBGRd1bvcVlBjn7jkY+8ZxZHp7iQ4RRytxMaF0OfUsph8h
+ 9IEWLAtQHPNhAVu5pasV7/L7aowjxk8GrAoGQcSh3SQEcD53Ix0v4lzafHOU4Ry/JkJbRlf4
+ Fgpveztngy5LYvEQzaevWywGov15XMFfiR5sWnUqm0wLiXSrkT1HmNWhRZCboDjl5PQcove9
+ dtAgB+bbumnMnirrCVOkc3A4C5IiVmyL3wqoiB4fGiogrPyCNBVp7c6sgwThqnn83sf2Al4T
+ Yx28ahvJYgoktikMStZkncZHNTwBtsCBMc8NDD7H2bcLAI78EKrfgA2ukIp5/7sTzrUo+8pi
+ RzfIU/eB/FHl7FHK2B+k3HZGQnQD2eLVdX4EwY36SPmueoF6uik2uJ2RxVwCK39YEKTpmHoB
+ cd9p5jUTwsUx+L9e0bC6srVwMBWxUCnJIpeegl8oaNoH/BnoIIj+yNFxbgXfdyan1SnIFFKd
+ W7mJdeB0VAdvHiAjMw==
+ 

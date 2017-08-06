@@ -1,0 +1,46 @@
+DN: dc=sbu
+objectClass: domain
+dc: sbu
+
+DN: dc=Mock,dc=sbu
+objectClass: domain
+dc: Mock
+
+DN: dc=state,dc=Mock,dc=sbu
+objectClass: domain
+dc: state
+
+DN: cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Configuration
+
+DN: cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Services
+
+DN: cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Public Key Services
+
+DN: cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: AIA
+
+DN: cn=U.S. Department of State AD Root CA,cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: U.S. Department of State AD Root CA
+certificateRevocationList;binary:: MIICkTCCAXkCAQEwDQYJKoZIhvcNAQEFBQAwgccxEzARBgoJkiaJk/IsZAEZFgNzYnUxFDAS
+ BgoJkiaJk/IsZAEZFgRNb2NrMRUwEwYKCZImiZPyLGQBGRYFc3RhdGUxFjAUBgNVBAMMDUNv
+ bmZpZ3VyYXRpb24xETAPBgNVBAMMCFNlcnZpY2VzMRwwGgYDVQQDDBNQdWJsaWMgS2V5IFNl
+ cnZpY2VzMQwwCgYDVQQDDANBSUExLDAqBgNVBAMMI1UuUy4gRGVwYXJ0bWVudCBvZiBTdGF0
+ ZSBBRCBSb290IENBFw0xNzA1MDUxNDEzMTlaFw0zMDEyMDExNjQ1MjdaMEowIwIEQNpfPBcN
+ MDkxMDI3MTgyNzMzWjAMMAoGA1UdFQQDCgEEMCMCBEDaXygXDTA5MTAyNzE4Mjg0M1owDDAK
+ BgNVHRUEAwoBBKAxMC8wCwYDVR0UBAQCAjFIMCAGA1UdIwQZMBeAFW+D/oJQZGV3Pv3fA5rO
+ KdEvMMzs/zANBgkqhkiG9w0BAQUFAAOCAQEAJq0j0V4Hqe4XY1Fp3QMPDAly0JJH6EkVJ4AM
+ 3rbIOhd3lyjYIFdSOAHT15/rL4uEKJJdwhEV/7ldQMX0u7LsA/99IluVrGEMitK9YVGbYwM/
+ MBrel/0rLdumqHo0/0uZ5y6nSj2H9lHC2lXQWS8gxUKXZxKIYOkRt6MvNJAgZSg/XdueuVbR
+ M4VIcPiyPSyygmy92ohWl4anlQsRgBOs3SwswQ1fr64KZ2pfnpeJOKtW1PwwOwz5wHgVFAmT
+ kBwkFFmuZC1O/FOWxS+wqdxEfzS5QxjVLIuqdhuLmIbdpmCCr37V4VOFYfgoTWrtDQa1+hR5
+ gNIa+f0s2umLBJzJgA==
+ 

@@ -1,0 +1,31 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=Digital Signature Trust,o=Mock,c=US
+objectClass: organization
+o: Digital Signature Trust
+
+DN: ou=DST ACES,o=Digital Signature Trust,o=Mock,c=US
+objectClass: organizationalUnit
+ou: DST ACES
+
+DN: cn=DST ACES CA X6,ou=DST ACES,o=Digital Signature Trust,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: DST ACES CA X6
+authorityRevocationList;binary:: MIIB5TCBzgIBATANBgkqhkiG9w0BAQsFADBqMQswCQYDVQQGEwJVUzENMAsGA1UEChMETW9j
+ azEgMB4GA1UEChMXRGlnaXRhbCBTaWduYXR1cmUgVHJ1c3QxETAPBgNVBAsTCERTVCBBQ0VT
+ MRcwFQYDVQQDEw5EU1QgQUNFUyBDQSBYNhcNMTcwNTEwMTgyMDQ0WhcNMTcxMTIwMjExOTU4
+ WqAwMC4wIAYDVR0jBBkwF4AVCXIGThhDD+XWzMNqizF7eI+og7j/MAoGA1UdFAQDAgFWMA0G
+ CSqGSIb3DQEBCwUAA4IBAQCc0LDVm2Q5OZozPF2t+d5TLEnrp8de0qxBZP3RnC4u6KlIjeL5
+ czoP1yItHsJXiWuk3StCHRQyimeGfUjizOfW+0Ll0YcsHX6Co+x3HJn01QAzV6XUvvaZFkgA
+ Phns1PZf3lGy+1UaDATckbX2UUH+wTGuyfIIYvTuXTTOn8bGYa9KPxabR76SAb19/4CEx9XC
+ ZoxhhDn+Vb6UQn+2Njk4SA8Ly4RqNyC1RzA52vacMd8osROlplHen4nxXTO4WdqT/ks4Ed2E
+ j7wpCxpXpxZ4TmMR2eVPje0j5MenaX+7oYYuAIbRHBVzA07vm0d5ebP710u7AouROhlOokwz
+ eGg/
+ 

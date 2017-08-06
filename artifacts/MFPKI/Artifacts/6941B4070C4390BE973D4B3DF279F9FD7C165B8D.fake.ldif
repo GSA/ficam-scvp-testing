@@ -1,0 +1,32 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=Entrust,o=Mock,c=US
+objectClass: organization
+o: Entrust
+
+DN: ou=Certification Authorities,o=Entrust,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=Entrust Managed Services NFI Root CA,ou=Certification Authorities,o=Entrust,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: Entrust Managed Services NFI Root CA
+certificateRevocationList;binary:: MIICLzCCARcCAQEwDQYJKoZIhvcNAQELBQAwgYExCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRAwDgYDVQQKEwdFbnRydXN0MSIwIAYDVQQLExlDZXJ0aWZpY2F0aW9uIEF1dGhvcml0
+ aWVzMS0wKwYDVQQLEyRFbnRydXN0IE1hbmFnZWQgU2VydmljZXMgTkZJIFJvb3QgQ0EXDTE3
+ MDUxNTEwMjUzNVoXDTE5MDIyMTIwMTcwMFowLjAVAgRKqJuoFw0xNjExMTYxNzAxMTFaMBUC
+ BEqom1YXDTE2MDgxMTE4MTg1M1qgMTAvMAsGA1UdFAQEAgJn1zAgBgNVHSMEGTAXgBUadFUe
+ ioUIn1BdPopGAYqBnPmeHv8wDQYJKoZIhvcNAQELBQADggEBAA3d7vnqfR+iyiTZ/+R4ESos
+ PDoN9E6v2G2LPnE8PStAA+6mML6TJ8L6mjjk1oFcZapG0lJxLWeuAAisvPr0JOyIG7c+Xzxj
+ kzUoTU5HSIcH4YiAbl9HDXMv5H7QV8IEBQ7NYxCjvyUJxYVP5txzsHa9FN+vpsn0uLVX6Pge
+ aFfOMHGckALjrht6qmMnBVYLmscPF98Oi6dHm68BODmlaHkFE/d/pj8Sb4UxENb99q42tHHP
+ P6dqgjrAOWlBDdt4a78rLBDtGlJBctv9MUhcJnofqYgzbwawSOpUc65JyZVVH1fOwqjT46H3
+ 48YIIwLM0D1Qtc6NAn+tf1/GZH4vB18=
+ 

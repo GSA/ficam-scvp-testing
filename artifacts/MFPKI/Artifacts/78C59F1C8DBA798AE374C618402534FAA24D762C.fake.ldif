@@ -1,0 +1,33 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=Boeing,o=Mock,c=US
+objectClass: organization
+o: Boeing
+
+DN: ou=certservers,o=Boeing,o=Mock,c=US
+objectClass: organizationalUnit
+ou: certservers
+
+DN: cn=Boeing PCA G3,ou=certservers,o=Boeing,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: Boeing PCA G3
+certificateRevocationList;binary:: MIICfDCCAWQCAQEwDQYJKoZIhvcNAQELBQAwWzELMAkGA1UEBhMCVVMxDTALBgNVBAoTBE1v
+ Y2sxDzANBgNVBAoTBkJvZWluZzEUMBIGA1UECxMLY2VydHNlcnZlcnMxFjAUBgNVBAMTDUJv
+ ZWluZyBQQ0EgRzMXDTE2MDcxOTIxMzEyN1oXDTE5MTIxNTE1NTEyMlowczApAgphm2lfAAAA
+ AAAHFw0xNTA1MDcyMzE0MDBaMAwwCgYDVR0VBAMKAQQwKQIKYTEEkgAAAAAABRcNMTQwNDI0
+ MTY1MjAwWjAMMAoGA1UdFQQDCgEEMBsCCmEi41wAAAAAAAMXDTE0MDEwOTE5MjgwMFqgYDBe
+ MCAGA1UdIwQZMBeAFTRrDgT4sq9lJbPvy1xEOSpMhIg//zAQBgkrBgEEAYI3FQEEAwIBADAK
+ BgNVHRQEAwIBNzAcBgkrBgEEAYI3FQQEDxcNMTYwODE5MjE0MTI3WjANBgkqhkiG9w0BAQsF
+ AAOCAQEAINZFUBmn6aaA2aiBPH/qQ+nAWn9gv0+OQTJpsQ8jYssnacxttSQuseVveWtIJdiI
+ 8Xg0R2rEOOm7qtQ/0RKMu0T3v6+U7qyD8W41b6oyxiLFTOnh3IzQZDo7iXGzy27RYoMgPJu7
+ w1QBhF+zoTYcRVrfTM7/w0e1qhAh8GUar3wknXZeMc8hZzpnjh4KRNSbBDa2Zecdv80RkDMN
+ gA+NNclddyKr1D4c71rV9RRVGTDhbgb8J6PZ65nxZsfPb+rIr4GiMzxe3GrhNKESJpweIZMM
+ LT21s4yuTmY5T9l2DueMFgHH+5gChxGkiMbRFnnR4tCq8FvIlvpjzei1B1EmIA==
+ 

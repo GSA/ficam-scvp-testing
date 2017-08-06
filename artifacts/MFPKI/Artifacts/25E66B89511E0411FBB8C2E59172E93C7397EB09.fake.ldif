@@ -1,0 +1,54 @@
+DN: dc=sbu
+objectClass: domain
+dc: sbu
+
+DN: dc=Mock,dc=sbu
+objectClass: domain
+dc: Mock
+
+DN: dc=state,dc=Mock,dc=sbu
+objectClass: domain
+dc: state
+
+DN: cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Configuration
+
+DN: cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Services
+
+DN: cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: Public Key Services
+
+DN: cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: applicationProcess
+cn: AIA
+
+DN: cn=U.S. Department of State AD Root CA,cn=AIA,cn=Public Key Services,cn=Services,cn=Configuration,dc=state,dc=Mock,dc=sbu
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: U.S. Department of State AD Root CA
+cACertificate;binary:: MIIEPjCCAyagAwIBAgIEQNnKATANBgkqhkiG9w0BAQUFADCBxzETMBEGCgmSJomT8ixkARkW
+ A3NidTEUMBIGCgmSJomT8ixkARkWBE1vY2sxFTATBgoJkiaJk/IsZAEZFgVzdGF0ZTEWMBQG
+ A1UEAwwNQ29uZmlndXJhdGlvbjERMA8GA1UEAwwIU2VydmljZXMxHDAaBgNVBAMME1B1Ymxp
+ YyBLZXkgU2VydmljZXMxDDAKBgNVBAMMA0FJQTEsMCoGA1UEAwwjVS5TLiBEZXBhcnRtZW50
+ IG9mIFN0YXRlIEFEIFJvb3QgQ0EwHhcNMDQwNjIzMTc1MDU1WhcNMjAwMTI3MTUwMDUxWjCB
+ xzETMBEGCgmSJomT8ixkARkWA3NidTEUMBIGCgmSJomT8ixkARkWBE1vY2sxFTATBgoJkiaJ
+ k/IsZAEZFgVzdGF0ZTEWMBQGA1UEAwwNQ29uZmlndXJhdGlvbjERMA8GA1UEAwwIU2Vydmlj
+ ZXMxHDAaBgNVBAMME1B1YmxpYyBLZXkgU2VydmljZXMxDDAKBgNVBAMMA0FJQTEsMCoGA1UE
+ AwwjVS5TLiBEZXBhcnRtZW50IG9mIFN0YXRlIEFEIFJvb3QgQ0EwggEiMA0GCSqGSIb3DQEB
+ AQUAA4IBDwAwggEKAoIBAQC1Vsg0Q+5K+04PeJ+jPN7rpuGtUDTxtVse75O2UFEtvKDW5z6K
+ /5gsws7xGfDxb5tBd17MSblSo6Y1Oxgw0yxLqyh7xw2zfD+zDCZNpLvR7OK2Ehmgc6x5PmhZ
+ VxYGmlV+YZmOi+2M1dV0SZyI0iRwPXxpYBKVAz0RrIMvZrjFDBXrN5OkW+1U6joMxggdDdDk
+ hK9tHHJ5ZCnqhci8x+5EtE4ORXOc+bVGlT5vgW6Phom/+BTUTh6cQGoIneDfUnEF/G1vCyry
+ 5mjvSYRZJW2EKLzQmEeiB+NPf9yuIv6p1liClz9czeJH/ZRs2TA0T5Ywy7DkuLQoZLBbfQTF
+ rHtZAgMBAAGjMDAuMB4GA1UdDgQXBBVvg/6CUGRldz793wOazinRLzDM7P8wDAYDVR0TBAUw
+ AwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAUHePJgOGwaOq30wyYS9xmRKvs2Lob3Hf2aLRYQ/t
+ fAxRoryWbR24jqFNbKQ+NG5O1T1q2KG1c+fKfbGTAgtG7ksUqNDEPgPK7pA6+D/rkfGQ9NIU
+ 6tOn/a5ufMzCdOVBpLiRS8P/QYYukp743n5DkMzvKZx3h1XMzQDWJcTsyypIeBEv55WKqVHr
+ yYcXKyy6+g6UsFZT7HsrqslqUA0Sx52HZTvhNYMRofNduiJpQvN951gImK63tSeK04PlE199
+ aFajCB+gdHsHH1r1y9Ysinfjeq+m2ZmDCnBgMYP7afnNG6aNfHNQ2lamPLKBmtoSWWlUPjex
+ /6e5m1ihiVBVyw==
+ 

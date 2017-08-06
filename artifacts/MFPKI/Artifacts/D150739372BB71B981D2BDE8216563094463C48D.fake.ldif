@@ -1,0 +1,44 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=Government Printing Office,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Government Printing Office
+
+DN: ou=Certification Authorities,ou=Government Printing Office,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=GPO PCA,ou=Certification Authorities,ou=Government Printing Office,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: GPO PCA
+authorityRevocationList;binary:: MIIDzTCCArUCAQEwDQYJKoZIhvcNAQELBQAwgZExCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKDA9VLlMuIEdvdmVybm1lbnQxIzAhBgNVBAsMGkdvdmVybm1lbnQgUHJp
+ bnRpbmcgT2ZmaWNlMSIwIAYDVQQLDBlDZXJ0aWZpY2F0aW9uIEF1dGhvcml0aWVzMRAwDgYD
+ VQQLDAdHUE8gUENBFw0xNzA1MDQyMzMyNTBaFw0xOTAyMjEyMDE3MDBaoIIB7TCCAekwggG3
+ BgNVHRwBAf8EggGrMIIBp6CCAaCgggGcpIGjMIGgMQswCQYDVQQGEwJVUzENMAsGA1UEChME
+ TW9jazEYMBYGA1UECgwPVS5TLiBHb3Zlcm5tZW50MSMwIQYDVQQLDBpHb3Zlcm5tZW50IFBy
+ aW50aW5nIE9mZmljZTEiMCAGA1UECwwZQ2VydGlmaWNhdGlvbiBBdXRob3JpdGllczEQMA4G
+ A1UECwwHR1BPIFBDQTENMAsGA1UEAwwEQ1JMNIaBtmxkYXA6Ly9kaXJlY3Rvcnkub2lzLmdw
+ by5nb3YudGVzdC9jbj1DUkw0LG91PUdQTyUyMFBDQSxvdT1DZXJ0aWZpY2F0aW9uJTIwQXV0
+ aG9yaXRpZXMsb3U9R292ZXJubWVudCUyMFByaW50aW5nJTIwT2ZmaWNlLG89VS5TLiUyMEdv
+ dmVybm1lbnQsbz1Nb2NrLGM9VVM/YXV0aG9yaXR5UmV2b2NhdGlvbkxpc3Q7YmluYXJ5hjto
+ dHRwOi8vd3d3Lmdwby1mYmNhLWNybHMub2lzLmdwby5nb3YudGVzdC9HUE8tUENBLUNSTGE0
+ LmNybIIB/zAKBgNVHRQEAwIBKzAgBgNVHSMEGTAXgBUicXghtYRtswHjEnRBTk1FB+lS//8w
+ DQYJKoZIhvcNAQELBQADggEBAFVRkdIgTte6wBBEvg6nVpp0yirnbd0zntqm0lPzQ47Pl1H2
+ +q1m9EKKS98syN7q2Ky/gz9J+OGyEwGRPlG5legkBnntwVr0FVh4IjrmjhtO8i87H5GSc9EV
+ xnukqYYcPig++GITouibF2iycgVqVEpu9kEcL34x+I/CvxJGA6JnvtsJ6e7C5vlLCGhbj46l
+ W+sUe2ekKLiOxjWf9yNyrduaSitcm75J3mAPR71J+Tp/OJf+30BNYgl05XfF2gE/arTubf7v
+ G+Kv8hg7ej/28YNsiNzfc5qEkMktvNBDgCTAWtzbQKyT9Yv/sCwRZKvDP60Q1l1tJ8fpS5Cf
+ pdJj4Mg=
+ 

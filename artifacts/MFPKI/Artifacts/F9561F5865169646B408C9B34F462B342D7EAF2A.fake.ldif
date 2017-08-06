@@ -1,0 +1,26 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=VeriSign, Inc.,o=Mock,c=US
+objectClass: organization
+o: VeriSign, Inc.
+
+DN: cn=VeriSign SSP Intermediate CA - G3,o=VeriSign, Inc.,o=Mock,c=US
+objectClass: pkiCA
+objectClass: applicationProcess
+cn: VeriSign SSP Intermediate CA - G3
+certificateRevocationList;binary:: MIIB3TCBxgIBATANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJVUzENMAsGA1UEChMETW9j
+ azEXMBUGA1UEChMOVmVyaVNpZ24sIEluYy4xKjAoBgNVBAMTIVZlcmlTaWduIFNTUCBJbnRl
+ cm1lZGlhdGUgQ0EgLSBHMxcNMTcwNTE1MTE0NjMzWhcNMzAxMjAxMTY0NTI3WqAxMC8wIAYD
+ VR0jBBkwF4AVZGG2IthWMOKhqsyi+HkzH7HK6Zj/MAsGA1UdFAQEAgIk7DANBgkqhkiG9w0B
+ AQsFAAOCAQEAnuggva+kPN5SucihRZlbM/KxFTDiEyF45dreczO8HnT2RTd22yKp9APEYmPO
+ //w9A6H/g2prkbI9L3jeB/DjcLBfD51aCs3IjlLcu2eV+f1lS6qqPn0bIZpc+J5SoKZV9tEg
+ NPPvXfFqetrvfsNgC/+xj/c0isLgsw9OwOn2Jsz+UPoLq1+d5Z2Gnxt7TblLHjyt1JNxwCHv
+ qY7Gv2H5UrHUoTztasRSflaoA2UMlUcW6ALnyy0APj2yYZ8PaTf3T9nZzD5/gPft9nEunzQB
+ 91hvDOmasleaubIa/jBJKNzDlwX1INcBi0AAn7Y5lvLwEriPINg4c/lHIT61mnZPpQ==
+ 

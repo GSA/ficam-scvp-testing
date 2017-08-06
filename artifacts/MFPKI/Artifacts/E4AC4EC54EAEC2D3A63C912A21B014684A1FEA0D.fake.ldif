@@ -1,0 +1,42 @@
+DN: c=US
+objectClass: country
+c: US
+
+DN: o=Mock,c=US
+objectClass: organization
+o: Mock
+
+DN: o=U.S. Government,o=Mock,c=US
+objectClass: organization
+o: U.S. Government
+
+DN: ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Department of the Treasury
+
+DN: ou=Certification Authorities,ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: organizationalUnit
+ou: Certification Authorities
+
+DN: ou=OCIO CA,ou=Certification Authorities,ou=Department of the Treasury,o=U.S. Government,o=Mock,c=US
+objectClass: pkiCA
+objectClass: organizationalUnit
+ou: OCIO CA
+certificateRevocationList;binary:: MIIDkjCCAnoCAQEwDQYJKoZIhvcNAQELBQAwgZExCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRN
+ b2NrMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxIzAhBgNVBAsTGkRlcGFydG1lbnQgb2Yg
+ dGhlIFRyZWFzdXJ5MSIwIAYDVQQLExlDZXJ0aWZpY2F0aW9uIEF1dGhvcml0aWVzMRAwDgYD
+ VQQLEwdPQ0lPIENBFw0xNzA1MTUxMTMwNTZaFw0xOTA0MTgxNTA2NDdaoIIBsjCCAa4wggF7
+ BgNVHRwBAf8EggFvMIIBa6CCAWSgggFgpIGlMIGiMQswCQYDVQQGEwJVUzENMAsGA1UEChME
+ TW9jazEYMBYGA1UEChMPVS5TLiBHb3Zlcm5tZW50MSMwIQYDVQQLExpEZXBhcnRtZW50IG9m
+ IHRoZSBUcmVhc3VyeTEiMCAGA1UECxMZQ2VydGlmaWNhdGlvbiBBdXRob3JpdGllczEQMA4G
+ A1UECxMHT0NJTyBDQTEPMA0GA1UEAxMGQ1JMODIxhoG1bGRhcDovL2xkYXAudHJlYXMuZ292
+ LnRlc3QvY249Q1JMODIxLG91PU9DSU8lMjBDQSxvdT1DZXJ0aWZpY2F0aW9uJTIwQXV0aG9y
+ aXRpZXMsb3U9RGVwYXJ0bWVudCUyMG9mJTIwdGhlJTIwVHJlYXN1cnksbz1VLlMuJTIwR292
+ ZXJubWVudCxvPU1vY2ssYz1VUz9jZXJ0aWZpY2F0ZVJldm9jYXRpb25MaXN0O2JpbmFyeYEB
+ /zALBgNVHRQEBAICKScwIAYDVR0jBBkwF4AV184oTMgkalZGW3Vli2fE+sjgiKX/MA0GCSqG
+ SIb3DQEBCwUAA4IBAQC4IeRI2V732h9PIMG9oJlar6M3IWFVlegeRhYoZ3uZY/4ylYG9ZOIY
+ rO+6oxKbV6vi7HP1LyUo6L/JpPHZcZLpdbi6gVRr9YTXvDpfYzhP3VoEc9bbZMnSuQZ3xMzI
+ oLLsxmKYLkO3VXEAFa/7IbEjqE9cNrNBbu0Jhl0+QCp1SVveJu7JEBuE0brU8eLqFcCf4YlD
+ 6RR7js9nZ3WcEwFsotXpfMiGe3tBYKoAwS4TBrsoXi4QphxUSBjBpoin37bMQzs75yjMaJBC
+ UcBsNh12YTjk+5Bghq7y0IR3oVePZt+Fa5wTtwTEAXm6vQ0wezPuMH9akLPc18PaeLC3xBQ9
+ 
