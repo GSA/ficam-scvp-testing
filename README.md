@@ -13,16 +13,16 @@ Use PITTv2 to confirm the artifacts VM is functioning properly then configure th
 
 ### Documentation
 
-Usage guides are available in the docs folders of this repository. The easiest way to get started after configuring the artifacts VM is to download the tools VM, which contains a variety of materials in the home directory of the default pcpadmin user. To configure the SCVP client to reference your responder, add the signing key of the responder to the key store located at ~/scvp-client/vssTrustStore.jks. Next, edit the ~/scvp-client/vss.properties file to identify the alias of the key just added to the key store as well as the URL of the SCVP interface in the VSS\_TRUSTSTORE\_SCVP\_SIGNER\_ISSUER\_LABEL and VSS\_SCVP\_SERVER_URI fields.
+Usage guides are available in the docs folders of this repository. The easiest way to get started after configuring the artifacts VM is to download the tools VM, which contains a variety of materials in the home directory of the default pcpadmin user. To configure the SCVP client to reference your responder, add the signing key of the responder to the key store located at `~/scvp-client/vssTrustStore.jks`. Next, edit the `~/scvp-client/vss.properties` file to identify the alias of the key just added to the key store as well as the URL of the SCVP interface in the `VSS_TRUSTSTORE_SCVP_SIGNER_ISSUER_LABEL` and `VSS_SCVP_SERVER_URI` fields.
 
 A full set of scripts are provided in `~/scvp-client/pre-generated-scripts` folder. To run these, use the `GSTPScriptRunner` utility as follows:
 
 ```
 $ source ~/scvp-client/venv-scvp-client/bin/activate
-$ python GSTPScriptRunner.py -i /home/pcpadmin/scvp-client/pregenerated-scripts -l ${SCVP\_OUTPUT\_PATH} -p HID -d /home/pcpadmin/Desktop/ResponderLogs
+$ python GSTPScriptRunner.py -i /home/pcpadmin/scvp-client/pregenerated-scripts -l ${SCVP_OUTPUT_PATH} -p HID -d /home/pcpadmin/Desktop/ResponderLogs
 ```
 
-This command assumes you have created a folder on the desktop to receive sorted copies of logs and have created a folder to receive working logs and saved that to the `SCVP\_OUTPUT\_PATH` environment variable. 
+This command assumes you have created a folder on the desktop to receive sorted copies of logs and have created a folder to receive working logs and saved that to the `SCVP_OUTPUT_PATH` environment variable. 
 
 If you would like to use the provided `PITTv2` utility to test your artifacts VM, update the `/etc/hosts` file to reference your VM.
 
@@ -32,7 +32,7 @@ PKITS was released by NIST over 15 years ago (then updated this decade to increa
 
 Similar to PKITS, PDTS was released by NIST. Unlike PKITS, PDTS has not been maintained and all artifacts in the original test suite have expired. PDTSv2 is a simple update to PDTS that increases the RSA key size, extends the validity dates and drops LDAP tests.
 
-The MF PKI is a new test suite, released for the first time as part of GSTP. The MF PKI was generated using PCP. A set of certificates from the Federal PKI were imported into PCP, additional certificates were harvested automatically by the tool then cloned equivalents were generated. The clones enable testing certification paths that accurately model the Federal PKI with private keys in hand.
+The MF PKI is a new test suite, released for the first time as part of GSTP. The MF PKI was generated using PCP. A set of certificates from the Federal PKI were imported into PCP, additional certificates were harvested automatically by the tool then cloned equivalents were generated. The clones enable testing certification paths that accurately model the Federal PKI with private keys in hand for use in generating digital signatures, authenticating to servers, etc.
 
 
 ### Installing
@@ -41,5 +41,5 @@ If using the provided VMs, there is nothing to install. Simply download the VMs,
 
 ## Running the tests
 
-The provided documentation describes how to run the tests. The GSTP Script Runner script is recommended. It facilitates running scripts in batchs with logs saved to folders named with each script's name. The output save to each folder will include a set of summary results, debugging information and scripts to simplify retesting scenarios that failed initially.
+The provided documentation describes how to run the tests. The GSTP Script Runner script is recommended. It facilitates running scripts in batchs with logs saved to folders named with each script's name, a reference to the product being tested and the time the script was executed. The output save to each folder will include a set of summary results, debugging information and scripts to simplify retesting scenarios that failed initially.
 
