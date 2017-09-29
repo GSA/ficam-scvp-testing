@@ -71,9 +71,9 @@ The GSTP test client is based on an SCVP client available from GitHub.com/GSA at
 
 Parameter Name|Parameter Type|Description|
 ---|---|---|
--h, --help|None|Show help message and exit|
+`-h, --help`|None|Show help message and exit|
 &nbsp;&nbsp;---------------------|--------------**_Basic Logistics_**---------------|----------------------------------&nbsp;&nbsp;|
---scvp_profile|{lightweight, long-term-record, batch}|Name of SCVP profile|
+`--scvp_profile`|{lightweight, long-term-record, batch}|Name of SCVP profile|
 -x, --expectSuccess|Boolean value {true, false}|Indicates whether success is expected when validating the --target_cert. Defaults to true|
 -l, --logging_conf|Full path and filename of log4j configuration file|Used to customize default logging behavior|
 -n, --test_case_name|String value|Friendly name of test case|
