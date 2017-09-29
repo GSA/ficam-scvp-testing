@@ -75,12 +75,12 @@ Parameter Name|Parameter Type|Description|
 &nbsp;&nbsp;---------------------|--------------**_Basic Logistics_**---------------|----------------------------------&nbsp;&nbsp;|
 `--scvp_profile`|{lightweight, long-term-record, batch}|Name of SCVP profile|
 -x, --expectSuccess|Boolean value {true, false}|Indicates whether success is expected when validating the --target_cert. Defaults to true|
--l, --logging_conf|Full path and filename of log4j configuration file|Used to customize default logging behavior|
--n, --test_case_name|String value|Friendly name of test case|
--z, --signer_certs|Path to directory to receive certificate(s) used to validate SCVP responses|Save signer certificates as read from a validation policy response to a specified directory then exit|
---log_all_messages|None|Log all requests and responses to the artifacts log, not just those from failed tests. Off by default.|
+`-l, --logging_conf`|Full path and filename of log4j configuration file|Used to customize default logging behavior|
+`-n, --test_case_name`|String value|Friendly name of test case|
+`-z, --signer_certs`|Path to directory to receive certificate(s) used to validate SCVP responses|Save signer certificates as read from a validation policy response to a specified directory then exit|
+`--log_all_messages`|None|Log all requests and responses to the artifacts log, not just those from failed tests. Off by default.|
 &nbsp;&nbsp;---------------------|----------**_Target Certificate Details_**---------|----------------------------------&nbsp;&nbsp;|
--c, --target_cert|Full path and filename of binary DER encoded certificate|Certificate presented to responder for validation; not used when 
+`-c, --target_cert`|Full path and filename of binary DER encoded certificate|Certificate presented to responder for validation; not used when 
 --scvp_profile is set to batch, required otherwise|
 -b, --batch_folder|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise|
 -t, --trust_anchor|Full path and filename of binary DER encoded certificate|Certificate presented to responder as trust anchor to use for validation; omitted from request by default|
