@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Generating SCVP Test Program Artifacts: Step-by-Step Guide
+title: Generating SCVP Test Program Artifacts
 permalink: /scvpartifactsguide/
 ---
+
 ### Revision History 
 
 Date|Version|Changes|
