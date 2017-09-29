@@ -71,29 +71,29 @@ The GSTP test client is based on an SCVP client available from GitHub.com/GSA at
 
 Parameter Name|Parameter Type|Description|
 ---|---|---|
-`-h, --help`|None|Show help message and exit|
+-h, --help|None|Show help message and exit|
 &nbsp;&nbsp;---------------------|--------------**_Basic Logistics_**---------------|----------------------------------&nbsp;&nbsp;|
-`--scvp_profile`|{lightweight, long-term-record, batch}|Name of SCVP profile|
-`-x, --expectSuccess`|Boolean value {true, false}|Indicates whether success is expected when validating the --target_cert. Defaults to true|
-`-l, --logging_conf`|Full path and filename of log4j configuration file|Used to customize default logging behavior|
-`-n, --test_case_name`|String value|Friendly name of test case|
-`-z, --signer_certs`|Path to directory to receive certificate(s) used to validate SCVP responses|Save signer certificates as read from a validation policy response to a specified directory then exit|
-`--log_all_messages`|None|Log all requests and responses to the artifacts log, not just those from failed tests. Off by default.|
+--scvp_profile|{lightweight, long-term-record, batch}|Name of SCVP profile|
+-x, --expectSuccess|Boolean value {true, false}|Indicates whether success is expected when validating the --target_cert. Defaults to true|
+-l, --logging_conf|Full path and filename of log4j configuration file|Used to customize default logging behavior|
+-n, --test_case_name|String value|Friendly name of test case|
+-z, --signer_certs|Path to directory to receive certificate(s) used to validate SCVP responses|Save signer certificates as read from a validation policy response to a specified directory then exit|
+--log_all_messages|None|Log all requests and responses to the artifacts log, not just those from failed tests. Off by default.|
 &nbsp;&nbsp;---------------------|----------**_Target Certificate Details_**---------|----------------------------------&nbsp;&nbsp;|
-`-c, --target_cert`|Full path and filename of binary DER encoded certificate|Certificate presented to responder for validation; not used when 
-`--scvp_profile is set to batch, required otherwise`|
-`-b, --batch_folder`|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise|
-`-t, --trust_anchor`|Full path and filename of binary DER encoded certificate|Certificate presented to responder as trust anchor to use for validation; omitted from request by default|
-`--batch_folder_success`|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to validate successfully|
-`--batch_folder_failure`|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to fail validation|
+-c, --target_cert|Full path and filename of binary DER encoded certificate|Certificate presented to responder for validation; not used when 
+--scvp_profile is set to batch, required otherwise|
+-b, --batch_folder|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise|
+-t, --trust_anchor|Full path and filename of binary DER encoded certificate|Certificate presented to responder as trust anchor to use for validation; omitted from request by default|
+--batch_folder_success|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to validate successfully|
+&#8209;&#8209;batch_folder_failure|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to fail validation|
 &nbsp;&nbsp;---------------------|------------**_SCVP Request Details_**-----------|----------------------------------&nbsp;&nbsp;|
-`-v, --validation_policy`|Object identifier value expressed in dot notation form (i.e., 1.2.3.4.5)|Validation policy to include in request; default value is 1.3.6.1.5.5.7.19.1|
-`--wantBacks`|One or more symbolic WantBack names {Cert, BestCertPath, RevocationInfo, PublicKeyInfo, AllCertPaths, EeRevocationInfo, CAsRevocationInfo}|WantBack value(s) to include in request; default is BestCertPath|
+-v, --validation_policy|Object identifier value expressed in dot notation form (i.e., 1.2.3.4.5)|Validation policy to include in request; default value is 1.3.6.1.5.5.7.19.1|
+--wantBacks|One or more symbolic WantBack names {Cert, BestCertPath, RevocationInfo, PublicKeyInfo, AllCertPaths, EeRevocationInfo, CAsRevocationInfo}|WantBack value(s) to include in request; default is BestCertPath|
 &nbsp;&nbsp;---------------------|**_Certification Path Validation </br>Algorithm Inputs_**|----------------------------------&nbsp;&nbsp;|
-`-p, --certificate_policy`|One or more object identifiers expressed in dot notation form (i.e., 1.2.3.4.5)|Certificate policies to use as the user supplied policy set; omitted from request by default|
-`--inhibitAnyPolicy`|Boolean value {true, false}|Boolean value to use as inhibitAnyPolicy; omitted from request by default|
-`--inhibitPolicyMapping`|Boolean value {true, false}|Boolean value to use as inhibitPolicyMapping; omitted from request by default|
-`--requireExplicitPolicy`|Boolean value {true, false}|Boolean value to use as requireExplicitPolicy; omitted from request by default|
+-p, --certificate_policy|One or more object identifiers expressed in dot notation form (i.e., 1.2.3.4.5)|Certificate policies to use as the user supplied policy set; omitted from request by default|
+--inhibitAnyPolicy|Boolean value {true, false}|Boolean value to use as inhibitAnyPolicy; omitted from request by default|
+--inhibitPolicyMapping|Boolean value {true, false}|Boolean value to use as inhibitPolicyMapping; omitted from request by default|
+--requireExplicitPolicy|Boolean value {true, false}|Boolean value to use as requireExplicitPolicy; omitted from request by default|
 
 
 Logging output is written to a location identified by the SCVP_OUTPUT_PATH environment variable.
@@ -102,10 +102,10 @@ Generally, the client need not be interacted with directly to execute test cases
 
 Configuration Element|Purpose|Example Value|
 ---|---|:---:|
-`VSS_TRUSTSTORE_SCVP_SIGNER_ISSUER_LABEL`|Provides label of SCVP responder’s certificate in the keystore|Some Responder|
-`VSS_SCVP_SERVER_URI`|Provides the URI to which SCVP requests are sent|http://example.com/scvp|
-`VSS_SCVP_DER_ENCODE_DEFAULTS`|Determines whether the client DER encodes default fields (some responders require presence of fields the DER requires to be absent)|False|
-`VSS_SCVP_TEST_CLIENT`|Governs custom test client behavior that is only appropriate in a test client|True|
+VSS_TRUSTSTORE_SCVP_SIGNER_ISSUER_LABEL|Provides label of SCVP responder’s certificate in the keystore|Some Responder|
+VSS_SCVP_SERVER_URI|Provides the URI to which SCVP requests are sent|http://example.com/scvp|
+VSS_SCVP_DER_ENCODE_DEFAULTS|Determines whether the client DER encodes default fields (some responders require presence of fields the DER requires to be absent)|False|
+VSS_SCVP_TEST_CLIENT|Governs custom test client behavior that is only appropriate in a test client|True|
 
 
 Alternatively, the location of the `vss.properties` file can be provided as a Java system variable when the client is launched as shown below (which also shows temporarily reassignment of the `SCVP_OUTPUT_PATH` environment variable for a single run):
@@ -133,18 +133,18 @@ During the execution of the GSTP, the test SCVP client will be executed hundreds
 
 -----------------------|---------------------**_ScvpScriptGenerator v1.0.0 Usage_**-----------------------------------|
 :---|---|
-`-h[ --help ]`|Print usage instructions|
-`-l [ --logging_conf ] arg`|Logging configuration to support report generation|
-`--pkits_2048_folder arg`|Folder containing PKITS 2048 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
-`--pkits_4096_folder arg`|Folder containing PKITS 4096 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
-`--pkits_p256_folder arg`|Folder containing PKITS p256 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
-`--pkits_p384_folder arg`|Folder containing PKITS p384 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
-`--pdts_folder arg`|Folder containing PDTS edition|
-`--mfpki_folder arg`|Folder containing MFPKI edition|
-`--mfpki_ta arg`|File containing the MFPKI trust anchor|
-`--output_folder arg`|Folder to receive generated scripts|
-`-l [ --logging ] arg`|Logging configuration for ScvpScriptGenerator logging purposes|
-`--want_back arg`|List of OIDS in dot notation form (i.e., 1.2.3.4.5) to be passes as --wantBacks to the SCVP client|
+-h[ --help ]|Print usage instructions|
+-l [ --logging_conf ] arg|Logging configuration to support report generation|
+--pkits_2048_folder arg|Folder containing PKITS 2048 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
+--pkits_4096_folder arg|Folder containing PKITS 4096 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
+--pkits_p256_folder arg|Folder containing PKITS p256 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
+--pkits_p384_folder arg|Folder containing PKITS p384 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
+--pdts_folder arg|Folder containing PDTS edition|
+--mfpki_folder arg|Folder containing MFPKI edition|
+--mfpki_ta arg|File containing the MFPKI trust anchor|
+--output_folder arg|Folder to receive generated scripts|
+-l [ --logging ] arg|Logging configuration for ScvpScriptGenerator logging purposes|
+--want_back arg|List of OIDS in dot notation form (i.e., 1.2.3.4.5) to be passes as --wantBacks to the SCVP client|
 
 The following script can be tailored to regenerate a full complement of scripts to support execution of the GSTP against a given SCVP responder:
 
