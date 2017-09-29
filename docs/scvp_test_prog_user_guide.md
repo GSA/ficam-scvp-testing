@@ -84,7 +84,7 @@ Parameter Name|Parameter Type|Description|
 --scvp_profile is set to batch, required otherwise|
 -b, --batch_folder|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise|
 -t, --trust_anchor|Full path and filename of binary DER encoded certificate|Certificate presented to responder as trust anchor to use for validation; omitted from request by default|
---batch_folder_success|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to validate successfully|
+&#8209;&#8209;batch_folder_success|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to validate successfully|
 &#8209;&#8209;batch_folder_failure|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to fail validation|
 &nbsp;&nbsp;---------------------|------------**_SCVP Request Details_**-----------|----------------------------------&nbsp;&nbsp;|
 -v, --validation_policy|Object identifier value expressed in dot notation form (i.e., 1.2.3.4.5)|Validation policy to include in request; default value is 1.3.6.1.5.5.7.19.1|
@@ -92,7 +92,7 @@ Parameter Name|Parameter Type|Description|
 &nbsp;&nbsp;---------------------|**_Certification Path Validation </br>Algorithm Inputs_**|----------------------------------&nbsp;&nbsp;|
 -p, --certificate_policy|One or more object identifiers expressed in dot notation form (i.e., 1.2.3.4.5)|Certificate policies to use as the user supplied policy set; omitted from request by default|
 --inhibitAnyPolicy|Boolean value {true, false}|Boolean value to use as inhibitAnyPolicy; omitted from request by default|
---inhibitPolicyMapping|Boolean value {true, false}|Boolean value to use as inhibitPolicyMapping; omitted from request by default|
+&#8209;&#8209;inhibitPolicyMapping|Boolean value {true, false}|Boolean value to use as inhibitPolicyMapping; omitted from request by default|
 --requireExplicitPolicy|Boolean value {true, false}|Boolean value to use as requireExplicitPolicy; omitted from request by default|
 
 
@@ -134,7 +134,7 @@ During the execution of the GSTP, the test SCVP client will be executed hundreds
 -----------------------|---------------------**_ScvpScriptGenerator v1.0.0 Usage_**-----------------------------------|
 :---|---|
 -h[ --help ]|Print usage instructions|
--l [ --logging_conf ] arg|Logging configuration to support report generation|
+&#8209;l&nbsp;[&nbsp;&#8209;&#8209;logging_conf&nbsp;]&nbsp;arg|Logging configuration to support report generation|
 --pkits_2048_folder arg|Folder containing PKITS 2048 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
 --pkits_4096_folder arg|Folder containing PKITS 4096 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
 --pkits_p256_folder arg|Folder containing PKITS p256 edition (root of Renamed folder containing 0, 1, 2, etc., folders and all certificates)|
