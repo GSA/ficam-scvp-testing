@@ -474,9 +474,8 @@ Trust Anchor Store Manager|Developed by Red Hound for DISA|Used to prepare trust
 OpenSSL|OpenSSL Software Foundation|Used by custom Python scripts for various purposes|
 ResignCert|Developed by Red Hound for DISA|Used by custom Python scripts to resign certificates|
 ResignCrl|Developed by Red Hound for DISA|Used by custom Python scripts to resign CRLs|
-XCA|Christian Hohnstadt (from xca.sourceforge.net)|Optionally used to re-root the MFPKI to use an existing test trust anchor|<!--XCA is capitalized according to website.--><br />
-<br />
-<br />
+XCA|Christian Hohnstadt (from xca.sourceforge.net)|Optionally used to re-root the MFPKI to use an existing test trust anchor|<!--XCA is capitalized according to website.-->
+
 Tool|Language|Purpose|
 ---|:---:|---|
 AddAiaAndCrlDp|C/C++|Used to inject AIA and CRL DP extensions into certificates and AIA extensions into CRLs|
