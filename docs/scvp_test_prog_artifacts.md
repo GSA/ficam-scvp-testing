@@ -110,7 +110,7 @@ No customization rules are required. Open the database prepared in section 2.1.2
 
 1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-4096 orientation.
 2. Navigate to the **_Generator Configuration_** tab and then to the Algorithm Map sub-tab. 
-3. In the Mapped Algorithm column, choose **_“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_** as the mapped value for **_“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_** which should be the only item in the **_Original Algorithm_** column.
+3. In the Mapped Algorithm column, choose _“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_ as the mapped value for _“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_ which should be the only item in the **_Original Algorithm_** column.
 4. Save the database and then execute the steps in section 2.1.2.2. (**Note:**&nbsp;&nbsp;Key generation for RSA-4096 bit keys is extremely slow.) 
 
 ##### 2.1.2.5	Customizing generation rules for ECDSA p256
