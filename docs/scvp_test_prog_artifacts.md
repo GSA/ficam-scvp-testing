@@ -110,23 +110,23 @@ No customization rules are required. Open the database prepared in section 2.1.2
 
 1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-4096 orientation.
 2. Navigate to the **_Generator Configuration_** tab and then to the Algorithm Map sub-tab. 
-3. In the Mapped Algorithm column, choose _“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_ as the mapped value for _“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_ which should be the only item in the **_Original Algorithm_** column.
+3. In the **Mapped Algorithm** column, choose _“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_ as the mapped value for _“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_ which should be the only item in the **_Original Algorithm_** column.
 4. Save the database and then execute the steps in section 2.1.2.2. (**Note:**&nbsp;&nbsp;Key generation for RSA-4096 bit keys is extremely slow.) 
 
 ##### 2.1.2.5	Customizing generation rules for ECDSA p256
 
 1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p256 orientation.
 2. Navigate to the **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab **&gt;** **_Public key algorithms_**. 
-3. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 256; Curve: secp256r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. 
-4. Change the **_Type_** to **_Digital signature algorithms_**, and choose **“_ecdsa_with_SHA256_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
+3. In the **_Mapped Algorithm_** column, choose “_Algorithm id_ecPublicKey; Key size: 256; Curve: secp256r1_” as the mapped value for “_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”, which should be the only item in the **_Original Algorithm_** column. 
+4. Change the **_Type_** to _Digital signature algorithms_, and choose “_ecdsa_with_SHA256_” in the **_Mapped Algorithm_** column for the “_Algorithm: sha256WithRSAEncryption; Parameters: present_” option, which should be the only item in the **_Original Algorithm_** column.
 5. Save the database then execute the steps in section 2.1.2.2.
 
 ##### 2.1.2.6	Customizing generation rules for ECDSA P384
 
 1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p384 orientation.
 2. Navigate to **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab. 
-3. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 384; Curve: secp384r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. 
-4. Change the **_Type_** to **_Digital signature algorithms_** and choose **“_ecdsa_with_SHA384_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
+3. In the **_Mapped Algorithm_** column, choose “_Algorithm id_ecPublicKey; Key size: 384; Curve: secp384r1_” as the mapped value for “_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”, which should be the only item in the **_Original Algorithm_** column. 
+4. Change the **_Type_** to _Digital signature algorithms_ and choose “_ecdsa_with_SHA384_” in the **_Mapped Algorithm_** column for the “_Algorithm: sha256WithRSAEncryption; Parameters: present_” option, which should be the only item in the **_Original Algorithm_** column.
 5. Save the database then execute the steps in section 2.1.2.2.
 
 #### 2.1.3	Outputs
@@ -178,22 +178,23 @@ To prepare a PDTS data set for cloning, perform the following steps:
 python PkitsPdtsReduction.py -d <path to extracted zip>
 ```
 4. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the "real" and "fake" directories beneath the location identified in the CRL folder setting.
-5.  Optionally, delete the log file (location specified in the dialog box accessed in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ &gt; _Create/edit/view_** configuration).
-6.  Create a new PCP database: **_File_ &gt; _New PCP Database_)
-7.  Import PDTS end entity certificates by navigating to the Certificates tab and clicking the Import Certificates button and browsing to the “End Entity Certs” folder within the reduced “Path Discovery Test Suite” folder. 22 certificates should be imported.
-8.  Import PDTS trust anchor certificates by navigating to the Certificates tab and clicking the Import Certificates button and browsing to the “Trust Anchor Certs” folder within the reduced “Path Discovery Test Suite” folder. 1 additional certificate should be imported resulting in 23 certificates total.
-9.  Save the PCP database.
-10. Make sure both Recursive URI harvest and Skip LDAP URIs during harvest are checked. Harvest additional certificates by clicking the Harvest certificates from URIs button on the Certificates tab. 82 certificates should be present, along with 42 PKCS #7 messages.
-11. Navigate to the CRLs tab. Make sure Skip LDAP URIs during harvest is checked the click Harvest CRLs to harvest CRLs. 28 CRLs should be retrieved.
-12. Save the PCP database.
-13. Close the PCP database.
+5. Optionally, delete the log file (location specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ &gt; _Create/edit/view_** configuration).
+6. Create a new PCP database: **_File_ &gt; _New PCP Database_**.
+7. Import _PDTS end-entity certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the **_“End Entity Certs”_** folder within the reduced **_“Path Discovery Test Suite”_** folder. A total of 22 certificates should be imported.
+8. Import _PDTS trust anchor certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the _“Trust Anchor Certs”_ folder within the reduced _“Path Discovery Test Suite”_ folder. One additional certificate should be imported, resulting in 23 certificates total.
+9. Save the PCP database.
+10. Make sure both **_Recursive URI harvest_** and **_Skip LDAP URIs during harvest_** are checked. Harvest additional certificates by clicking the _Harvest_ certificates from the **_URIs_** button on the **_Certificates_** tab. A total of 82 certificates should be present, along with 42 PKCS #7 messages.
+11. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked and then click **_Harvest CRLs_** to harvest CRLs. A total of 28 CRLs should be retrieved.
+12. Save the PCP database and close it.
+
+***CELESTE STOPPED FORMATTING HERE 10/3/2017 - REMEMBER TO DO TABLE OF CONTENTS AND BACK_TO_TOC LINKS**
 
 ##### 2.2.2.2	Basic PDTS clone generation
 
 To prepare a cloned PDTS data set, perform the following steps:
 
 1. Open the PCP database prepared in section 2.2.2.1.
-2. Select the Tools->Delete Fake PKI and Tools->Delete Fake Keys to ensure new keys and artifacts will be generated. Select Tools->Delete all fake items if there are no custom configurations you wish to retain.
+2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_**, if there are no custom configurations you wish to retain.
 3. Navigate to the Generator Configuration tab. On the Hosts sub-tab select the URI name form. Click the Append default suffix to each button. Enter test into the resulting dialog and click OK. The names from the left column should now appear in the right column with a .test suffix appending. There is no need to alter the RFC822 domain and are no other hosts listed for other name forms.
 4. Make sure the first two options on the Options->Preferences->Basic Generation Options tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
 5. Select the Tools->Generate PKI menu item to generate new key pairs and signed artifacts. 
@@ -284,7 +285,7 @@ pip install glob2
 PCP uses signatures to organize artifacts for cloning. In order for certificates with bad signatures to be successfully cloned, the artifacts must first be resigned. This will enable PCP to generate a clone. Signatures can be broken on the cloned artifacts using the BreakSig.py script.
 
 Two certificates require resigning, which requires extracting private keys for two different CAs. The following examples illustrate how to extract PKCS #8 keys from the PKCS #12 objects included with PKITS then using ResignCert to generate resigned artifacts suitable for cloning. 
-
+```
 openssl pkcs12 -in TrustAnchorRootCertificate.p12 -nodes 
 -out TrustAnchorRootCertificate.pem
 
@@ -298,14 +299,13 @@ openssl pkcs12 -in GoodCACert.p12 -nodes
 openssl pkcs8 -topk8 -inform PEM -outform DER 
 -in GoodCACert.pem -out GoodCACert.p8 -nocrypt
 
-
 ResignCert.exe -p TrustAnchorRootCertificate.p8 
 -i BadSignedCACert.crt -o .\BadSignedCACert.resigned.crt
 
 ResignCert.exe -p GoodCACert.p8 
 -i InvalidEESignatureTest3EE.crt 
 -o .\InvalidEESignatureTest3EE.resigned.crt
-
+```
 After generating resigned artifacts, rename thee original files with a .omit file extension.
 
 ## Appendix C - Using PITTv2 to Review Cloned Artifacts
@@ -448,9 +448,9 @@ NIST’s PKITS test data requires manual presentation of certificates and CRLs t
 
 To prepare the updated data, several new scripts and tools were developed:
 
-*	AddAiaAndCrlDp is a C/C++ command line utility that adds AIAs to certificates and CRLs and CRL DPs to certificates. The PkitsUpdater.py script is used to drive the tool.
-*	FetchKeyId is a C/C++ command line utility that returns an ASCII hexadecimal representation of a SKID or AKID extension in a certificate or CRL.
-*	PkitsUpdater.py is a Python script that accepts a copy of the NIST PKITS edition and emits a data set containing certificates with appropriate AIAs and CRL DPs, CRLs with appropriate AIAs and a collection of PKCS7 files for hosting as AIA data.
+*	AddAiaAndCrlDp is a C/C++ command line utility that adds AIAs to certificates and CRLs and CRL DPs to certificates. The `PkitsUpdater.py` script is used to drive the tool.
+*	`FetchKeyId` is a C/C++ command line utility that returns an ASCII hexadecimal representation of a SKID or AKID extension in a certificate or CRL.
+*	`PkitsUpdater.py` is a Python script that accepts a copy of the NIST PKITS edition and emits a data set containing certificates with appropriate AIAs and CRL DPs, CRLs with appropriate AIAs and a collection of PKCS7 files for hosting as AIA data.
 
 Several additional existing tools were used as well including the ResignCert and ResignCrl utilities built for DISA and the openssl command line utility. 
 
