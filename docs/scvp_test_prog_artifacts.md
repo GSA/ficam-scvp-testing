@@ -43,7 +43,7 @@ PDTS|RSA-2048|SHA256|CITE-hosted|
 
 #### 2.1.1 Inputs
 
-The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ will provide certificates and CRLs that will be input into PCP to facilitate cloning. (At the NIST website, see the **Path Validation Testing Program** section and click on the _test data_ link.) Because Digital Signature Algorithm (DSA) will not be used in the SCVP Test Program, the following artifacts will not be cloned and may be omitted from the input data:
+The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ provides certificates and CRLs that will be input into PCP to facilitate cloning. (At the NIST website, see the **Path Validation Testing Program** section and click on the _test data_ link.) Because Digital Signature Algorithm (DSA) will not be used in the SCVP Test Program, the following artifacts will not be cloned and can be omitted from the input data:
 
 *	`DSACACert.crt`
 *	`DSAParametersInheritedCACert.crt`
@@ -61,7 +61,7 @@ Two certificate objects must be resigned prior to cloning. These artifacts are: 
 
 ##### 2.1.2.1	Preparing PKITS for cloning
 
-> **Note:**nbsp;nbsp;Steps 1-3 apply when using NIST’s PKITS edition. (See _Appendix F_ for details on PKITSv2 data set [i.e., PKITS with Authority Information Access (AIA) and Certificate Revocation List (CRL) Distribution (DP) extensions].)
+> **Note:**&nbsp;&nbsp;Steps 1-3 apply when using NIST’s PKITS edition. (See _Appendix F_ for details on PKITSv2 data set [i.e., PKITS with Authority Information Access (AIA) and Certificate Revocation List (CRL) Distribution (DP) extensions].)
 
 To prepare a PKITS data set for cloning, perform the following steps:
 
@@ -70,13 +70,12 @@ To prepare a PKITS data set for cloning, perform the following steps:
 3. Resign the necessary artifacts (`InvalidEESignatureTest3EE.crt` and `BadSignedCACert.crt`) using the steps given in _Appendix B_.
 4. Use the `PkitsPdtsReduction` utility to omit the DSA artifacts:&nbsp;&nbsp;`python PkitsPdtsReduction.py -v` (path to extracted zip).
 5. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. (The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder.) Delete the contents of the "real" and "fake directories beneath the location identified in the CRL folder setting.
-6. Optionally, delete log file (location specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ -&gt; _Create/edit/view_** configuration). 
+6. Optionally, delete the log file (location specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ -&gt; _Create/edit/view_** configuration). 
 7. Create a new PCP database: **_File_ &gt; _New PCP Database_**.
 8. Import PKITS certificates by navigating to the **_Certificates_** tab and clicking the **_Import Certificates_** button and browsing to the certs folder within the reduced PKITS_data folder. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
-9. Find the Invalid Missing `basicConstraints EE Certificate Test 1 certificate` (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **_Import Certificate_** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
-10.	Import PKITS CRLs by navigating to the **_CRLs_** tab and clicking the **_Import CRLs_** button and browsing to the crls folder within the reduced PKITS_data folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
-11. Save the PCP database.
-12. Close the PCP database.
+9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **_Import Certificate_** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
+10.	Import PKITS CRLs by navigating to the **_CRLs_** tab and clicking the **_Import CRLs_** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
+11. Save the PCP database and close it.
 
 ##### 2.1.2.2	Basic PKITS clone generation
 
@@ -109,37 +108,36 @@ No customization rules are required. Open the database prepared in section 2.1.2
 
 ##### 2.1.2.4	Customizing generation rules for RSA-4096
 
-Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-4096 orientation.
-
-Navigate to the **_Generator Configuration_** tab and then to the Algorithm Map sub-tab. In the Mapped Algorithm column, choose **_“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_** as the mapped value for **_“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_** which should be the only item in the **_Original Algorithm_** column.
-
-Save the database and then execute the steps in section 2.1.2.2. (**Note:**&nbsp;&nbsp;Key generation for RSA-4096 bit keys is extremely slow.) 
+1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-4096 orientation.
+2. Navigate to the **_Generator Configuration_** tab and then to the Algorithm Map sub-tab. 
+3. In the Mapped Algorithm column, choose **_“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_** as the mapped value for **_“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_** which should be the only item in the **_Original Algorithm_** column.
+4. Save the database and then execute the steps in section 2.1.2.2. (**Note:**&nbsp;&nbsp;Key generation for RSA-4096 bit keys is extremely slow.) 
 
 ##### 2.1.2.5	Customizing generation rules for ECDSA p256
 
-Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p256 orientation.
-
-Navigate to the **_Generator Configuration_** tab, then to the **_Algorithm Map_** sub-tab, and then to **_Public key algorithms_**. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 256; Curve: secp256r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. Change the **_Type_** to **_Digital signature algorithms_**, and choose **“_ecdsa_with_SHA256_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
-
-Save the database then execute the steps in section 2.1.2.2.
+1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p256 orientation.
+2. Navigate to the **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab **&gt;** **_Public key algorithms_**. 
+3. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 256; Curve: secp256r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. 
+4. Change the **_Type_** to **_Digital signature algorithms_**, and choose **“_ecdsa_with_SHA256_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
+5. Save the database then execute the steps in section 2.1.2.2.
 
 ##### 2.1.2.6	Customizing generation rules for ECDSA P384
 
-Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p384 orientation.
-
-Navigate to the **_Generator Configuration_** tab and then to the **_Algorithm Map_** sub-tab. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 384; Curve: secp384r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. Change the **_Type_** to **_Digital signature algorithms_** and choose **“_ecdsa_with_SHA384_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
-
-Save the database then execute the steps in section 2.1.2.2.
+1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates EC p384 orientation.
+2. Navigate to **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab. 
+3. In the **_Mapped Algorithm_** column, choose **“_Algorithm id_ecPublicKey; Key size: 384; Curve: secp384r1_”** as the mapped value for **“_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”**, which should be the only item in the **_Original Algorithm_** column. 
+4. Change the **_Type_** to **_Digital signature algorithms_** and choose **“_ecdsa_with_SHA384_”** in the **_Mapped Algorithm_** column for the **“_Algorithm: sha256WithRSAEncryption; Parameters: present_”** option, which should be the only item in the **_Original Algorithm_** column.
+5. Save the database then execute the steps in section 2.1.2.2.
 
 #### 2.1.3	Outputs
 
-The result will include a complete set of PKITS artifacts with names that match the original filenames for each algorithm target elected. If each of sections 2.1.2.3 through 2.1.2.6 is executed, four sets of artifacts will result. 
+The results will include a complete set of PKITS artifacts with names that match the original filenames for each algorithm target elected. If each of sections 2.1.2.3 through 2.1.2.6 is executed, four sets of artifacts will result. 
 
 ### 2.2	Path Development Test Suite (PDTS)
 
 2.2.1	Inputs
 
-The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_will provide certificates and CRLs that will be input into PCP to facilitate harvesting and then cloning. (At the NIST website, see the **Path Validation Testing Program** section and click on the _test data_ link.) The bulk of PDTS is focused on LDAP. Since LDAP is not a target for the SCVP Test Program, these artifacts need not be cloned. The following artifacts will be cloned (all other artifacts will be omitted):
+The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ provides certificates and CRLs that will be input into PCP to facilitate harvesting and then cloning. (At the NIST website, see the **Path Validation Testing Program** section and click on the _test data_ link.) The bulk of PDTS is focused on LDAP. Since LDAP is not a target for the SCVP Test Program, these artifacts need not be cloned. The following artifacts will be cloned (all other artifacts will be omitted):
 
 *	`BasicHTTPURIPathDiscoveryOU1EE1.crt`
 *	`BasicHTTPURIPathDiscoveryOU1EE2.crt`
@@ -180,10 +178,8 @@ To prepare a PDTS data set for cloning, perform the following steps:
 python PkitsPdtsReduction.py -d <path to extracted zip>
 ```
 4. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the "real" and "fake" directories beneath the location identified in the CRL folder setting.
-5.  Optionally, delete log file (location specified in the dialog box accessed in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ &gt; _Create/edit/view_** configuration).
-
-**CELESTE STOPPED FORMATTING/EDITING 10-2)**
-6.  Create a new PCP database (File->New PCP Database)
+5.  Optionally, delete the log file (location specified in the dialog box accessed in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ &gt; _Create/edit/view_** configuration).
+6.  Create a new PCP database: **_File_ &gt; _New PCP Database_)
 7.  Import PDTS end entity certificates by navigating to the Certificates tab and clicking the Import Certificates button and browsing to the “End Entity Certs” folder within the reduced “Path Discovery Test Suite” folder. 22 certificates should be imported.
 8.  Import PDTS trust anchor certificates by navigating to the Certificates tab and clicking the Import Certificates button and browsing to the “Trust Anchor Certs” folder within the reduced “Path Discovery Test Suite” folder. 1 additional certificate should be imported resulting in 23 certificates total.
 9.  Save the PCP database.
