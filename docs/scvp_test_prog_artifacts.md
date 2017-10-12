@@ -187,18 +187,18 @@ python PkitsPdtsReduction.py -d <path to extracted zip>
 11. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked and then click **_Harvest CRLs_** to harvest CRLs. A total of 28 CRLs should be retrieved.
 12. Save the PCP database and close it.
 
-***CELESTE STOPPED FORMATTING HERE 10/3/2017 - REMEMBER TO DO TABLE OF CONTENTS AND BACK_TO_TOC LINKS**
-
 ##### 2.2.2.2	Basic PDTS clone generation
 
 To prepare a cloned PDTS data set, perform the following steps:
 
 1. Open the PCP database prepared in section 2.2.2.1.
 2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_**, if there are no custom configurations you wish to retain.
-3. Navigate to the Generator Configuration tab. On the Hosts sub-tab select the URI name form. Click the Append default suffix to each button. Enter test into the resulting dialog and click OK. The names from the left column should now appear in the right column with a .test suffix appending. There is no need to alter the RFC822 domain and are no other hosts listed for other name forms.
-4. Make sure the first two options on the Options->Preferences->Basic Generation Options tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
-5. Select the Tools->Generate PKI menu item to generate new key pairs and signed artifacts. 
-6. Wait (key generation will take some time).
+3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the URI name form. Click the _Append_ default suffix to each button. Enter _test_ into the resulting dialog and click OK. The names from the left column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC 822 domain and there are no other hosts listed for other name forms.
+4. Make sure that the first two options on the **_Option_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
+5. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
+6. Wait. (Key generation will take some time.)
+**CELESTE STOPPED HERE 10/12/2017**
+
 7. Save the PCP database (possible via Save As to provide a name indicative of algorithm orientation of clones).
 8. Review the Has Fake column on the Certificates and CRLs tabs and confirm all artifacts have been cloned. If not, review logs, determine cause, correct the issue and retry.
 9. Select the Tools->Export PKI menu item.
