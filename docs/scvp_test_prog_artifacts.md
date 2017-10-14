@@ -191,54 +191,52 @@ python PkitsPdtsReduction.py -d <path to extracted zip>
 
 To prepare a cloned PDTS data set, perform the following steps:
 
-1. Open the PCP database prepared in section 2.2.2.1.
+1. Open the **_PCP database_** prepared in section 2.2.2.1.
 2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_**, if there are no custom configurations you wish to retain.
-3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the URI name form. Click the _Append_ default suffix to each button. Enter _test_ into the resulting dialog and click OK. The names from the left column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC 822 domain and there are no other hosts listed for other name forms.
+3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the **_URI_** name form. Click the _Append_ default suffix to each button. Enter _test_ into the resulting dialog and click OK. The names from the left column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC 822 domain, and there are no other hosts listed for other name forms.
 4. Make sure that the first two options on the **_Option_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
 5. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
 6. Wait. (Key generation will take some time.)
-**CELESTE STOPPED HERE 10/12/2017**
+7. Save the _PCP database_ (via _Save As_ to provide a name indicative of algorithm orientation of clones).
+8. Review the **_Has Fake_** column on the **_Certificates_** and **_CRLs_** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, and correct the issue and retry.
+9. Select the **_Tools_ &gt; _Export PKI_** menu item.
+10. Rename the exported folder to indicate the nature of cloned artifacts, if desired.
+11. Copy the contents of the **_Fake_** folder beneath the configured **_CRL_** folder to the exported folder, if desired.
+12.	Generate a copy of the cloned artifacts using the original file names by using the **_ClonedPkitsNameFixer_** tool, along with original PDTS data, cloned data and a folder to receive renamed artifacts.
 
-7. Save the PCP database (possible via Save As to provide a name indicative of algorithm orientation of clones).
-8. Review the Has Fake column on the Certificates and CRLs tabs and confirm all artifacts have been cloned. If not, review logs, determine cause, correct the issue and retry.
-9. Select the Tools->Export PKI menu item.
-10. Rename exported folder to indicate nature of cloned artifacts, if desired.
-11. Copy contents of fake folder beneath configured CRL folder to the exported folder, if desired.
-12.	Generate a copy of the cloned artifacts using the original file names using the ClonedPkitsNameFixer tool along with original PDTS data, cloned data and a folder to receive renamed artifacts.
 ```
 mkdir <path>/PDTS/renamed
 python ClonedPkitsNameFixer.py -d “/<path>/Path Discovery Test Suite” -e /<path>/PDTS -f /<path>/PDTS/renamed
 ```
-13. Delete spurious folders created with names of PKITS path settings
-14. Export and save a list of hosts using the Analysis->Reports->List hosts menu item.
+13. Delete spurious folders created with names of PKITS path settings.
+14. Export and save a list of hosts using the **_Analysis_ &gt; _Reports_ &gt; _List hosts_** menu item.
 
 #### 2.2.3 Outputs
 
-The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting the artifacts.
+The results will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting of the artifacts.
 
 ### 2.3	MFPKI
 
 #### 2.3.1 Inputs
 
-A set of 58 end entity certificates from various PKIs connected to the FPKI will be provided as input to PCP along with a p7b file containing all certificates collected by the FPKI crawler (available from https://fpki-graph.fpki-lab.gov/crawler/) to facilitate harvesting then cloning.
+A set of 58 end entity certificates from various PKIs connected to the FPKI will be provided as inputs to PCP along with a .p7b file containing all certificates collected by the [FPKI Crawler](https://fpki-graph.fpki-lab.gov/crawler/){:target=_"blank"} to facilitate harvesting and then cloning.
 
 #### 2.3.2	Generation Procedures
 
 ##### 2.3.2.1	Preparing MFPKI for cloning
 
-To prepare a MFPKI data set for cloning, perform the following steps.
+To prepare a MFPKI data set for cloning, perform the following steps:
 
-1. Collect the desired end entity certificates beneath a single folder (there may be sub-folders) and download the latest FPKI crawler p7b file.
-2. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in Options->Preferences->CRLs folder. Delete the contents of the real and fake directories beneath the location identified in the CRL folder setting.
-3. Optionally, delete log file (location specified in the dialog accessed via Options->Preferences->Logging Configuration->Create/edit/view configuration).
-4. Create a new PCP database (File->New PCP Database)
-5. Import MFPKI end entity certificates by navigating to the Certificates tab and clicking the Import Certificates button and browsing to the folder containing the end entity certificates collected in step 1. Confirm the number of certificates that were imported matches expectations.
-6. Import the CA certificates from the FPKI crawler by navigating to the PKCS7 Messages tab, clicking the Import PKCS7 File… button and browsing to the CACertificatesValidatingToFederalCommonPolicy.p7b file.
-7. Save the PCP database.
-8. Make sure both Recursive URI harvest and Skip LDAP URIs during harvest are checked. Harvest additional certificates by clicking the Harvest certificates from URIs button on the Certificates tab. After that completes, click the Harvest OCSP responder certificates button.
-9. Navigate to the CRLs tab. Make sure Skip LDAP URIs during harvest is checked the click Harvest CRLs to harvest CRLs. 
-10. Save the PCP database.
-11. Close the PCP database.
+1. Collect the desired end entity certificates beneath a single folder (there may be sub-folders) and download the latest FPKI Crawler .p7b file.
+2. Clean the **_CRLs_** folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in the **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the "real" and "fake" directories beneath the location identified in the **_CRL_** folder setting.
+3. Optionally, delete log file (location specified in the dialog accessed via **_Options_ &gt; _Preferences_ &gt; _Logging Configuration_ &gt; _Create/edit/view configuration_**).
+4. Create a new **_PCP database_** (**_File_ &gt; _New PCP Database_**)
+5. Import MFPKI end entity certificates by navigating to the **_Certificates_** tab; clicking the **_Import Certificates_** button; and browsing to the folder containing the end entity certificates collected in Step 1. Confirm that the number of certificates that were imported matches expectations.
+6. Import the CA certificates from the FPKI Crawler by navigating to the **_PKCS7 Messages_** tab; clicking the **_Import PKCS7 File…_** button; and browsing to the _CACertificatesValidatingToFederalCommonPolicy.p7b_ file.
+7. Save the **_PCP database_**.
+8. Make sure both **_Recursive URI harvest_** and **_Skip LDAP URIs during harvest_** are checked. Harvest additional certificates by clicking the **_Harvest certificates from URIs_** button on the **_Certificates_** tab. After that completes, click the **_Harvest OCSP responder certificates_** button.
+9. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked and then click **_Harvest CRLs_** to harvest the CRLs. 
+10. Save and then close the **_PCP database_**.
 
 ##### 2.3.2.2	Basic MFPKI clone generation
 
