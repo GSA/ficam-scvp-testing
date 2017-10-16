@@ -1,8 +1,3 @@
----
-layout: default
-title: Server-based Certificate Validation Protocol (SCVP) Test Program User's Guide
-permalink: /scvpuserguide/
----
 ### Revision History 
 
 Date|Version|Changes|
@@ -11,31 +6,31 @@ Date|Version|Changes|
 
 ### Table of Contents
 
-* [**1 OVERVIEW**](#1-overview)
-* [**2 GSTP COMPONENTS**](#2-gstp-components)
-* [2.1 Test SCVP Client](#2.1-test-scvp-client)
-* [2.2 Test SCVP Client Scripts and Script Generator](#2.2-test-scvp-client-scripts-and-script-generator)
-* [2.3 Test SCVP Client Script Runner](#2.3-test-scvp-client-script-runner)
-* [2.4 Test Artifacts](#2.4-test-artifacts)
-* [2.5 Sample Environment](#2.5-sample-environment)
-* [2.6 Hosts File for Sample Environment](#2.6-hosts-file-for-sample-environment)
-* [**3 GSTP USAGE**](#3-gstp-usage)
-* [3.1 Generating Test Scripts](#3.1-generating-test-scripts)
-* [3.2 Executing GSTP Test Cases](#3.2-executing-gstp-test-cases)
-* [3.3 Reviewing Logs](#3.3-reviewing-logs)
-  * [3.3.1 Summary Results](#3.3.1-summary-results)
-  * [3.3.2 Client Log](#3.3.2-client-log)
-  * [3.3.3 Validation Failures Re-execution Script](#3.3.3-validation-failures-re-execution-script)
-  * [3.3.4 Profile Evaluation Failures Re-execution Script](#3.3.4-profile-evaluation-failures-re-execution-script)
-  * [3.3.5 Artifacts](#3.3.5-artifacts)
-  * [3.3.6 Debug](#3.3.6-debug)
-* [**4 DEPLOYING ARTIFACTS**](#4-deploying-artifacts)
-* [4.1 Local Virtual Machines](#4.1-local-virtual-machines)
-* [4.2 Amazon Web Services Image](#4.2-amazon-web-services)
-* [4.3 Artifact Archives](#4.3-artifact-archives)
+* [**OVERVIEW**](#overview)
+* [**GSTP COMPONENTS**](#gstp-components)
+* [Test SCVP Client](#test-scvp-client)
+* [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
+* [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
+* [Test Artifacts](#test-artifacts)
+* [Sample Environment](#sample-environment)
+* [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
+* [**GSTP USAGE**](#gstp-usage)
+* [Generating Test Scripts](#generating-test-scripts)
+* [Executing GSTP Test Cases](#executing-gstp-test-cases)
+* [Reviewing Logs](#reviewing-logs)
+  * [Summary Results](#summary-results)
+  * [Client Log](#client-log)
+  * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
+  * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
+  * [Artifacts](#artifacts)
+  * [Debug](#debug)
+* [**DEPLOYING ARTIFACTS**](#deploying-artifacts)
+* [Local Virtual Machines](#local-virtual-machines)
+* [Amazon Web Services Image](#amazon-web-services)
+* [Artifact Archives](#artifact-archives)
 * [**BIBLIOGRAPHY**](#bibliography)
 
-## 1 Overview
+## Overview
 
 This document provides an overview of the artifacts and utilities employed by the U.S. General Services Administration's (GSA) Server-based Certificate Validation Protocol (SCVP) Test Program (GSTP). The GSTP's goal is to confirm whether an SCVP Responder is capable of providing accurate certification path validation results in environments with comparable complexity to the U.S. Federal Public Key Infrastructure (FPKI). The test materials do not facilitate confirmation that a product is conformant with all aspects of the SCVP, as defined in [Request for Comment (RFC) 5055].<!--Fixed 5005 to 5055, per Bibliography.--> Instead, conformance to the SCVP profiles identified for use by GSA [TREAS] is demonstrated.
 
@@ -63,9 +58,9 @@ All Authority Information Access (AIA) and Certificate Revocation List (CRL) Dis
 
 * [Back to Table of Contents](#table-of-contents)
 
-## 2 GSTP Components
+## GSTP Components
 
-### 2.1 Test SCVP Client
+### Test SCVP Client
 
 The GSTP test client is based on an SCVP client available from GitHub.com/GSA at: [GSA/VSS](https://github.com/GSA/vss){:target="_blank"}._ <!--This link gives 404 error due to Private Repo.-->The GSTP client will also be available via GitHub at a TBD location. The command line parameters accepted by the client are as follows:
 
@@ -127,7 +122,7 @@ The test client will write logs to the location identified by the `SCVP_OUTPUT_P
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 2.2 Test SCVP Client Scripts and Script Generator
+### Test SCVP Client Scripts and Script Generator
 
 During the execution of the GSTP, the test SCVP client will be executed hundreds of times. To simplify execution of the test cases, a set of scripts are provided that reference a target certificate or collection of target certificates and provide a set of appropriate command line parameters. These scripts can be modified for the environment in which the test client will be used. Scripts may be manually altered or regenerated to change paths to test artifacts, to change output folder location or to change the list of wantBacks.
 
@@ -217,7 +212,7 @@ The resulting output will be a set of scripts, as listed below. For the MFPKI an
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 2.3	Test SCVP Client Script Runner
+### Test SCVP Client Script Runner
 
 The following script can be used to execute all GSTP test cases when run from a folder containing the test SCVP client with all logs collecting in one location:
 
@@ -387,7 +382,7 @@ This script will run all available scripts in the designated folder. To refrain 
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 2.4	Test Artifacts
+### Test Artifacts
 
 PKITSv2 and PDTSv2 are updates to the existing NIST test suites. PKITS was updated to add AIA and CRL DP extensions to avoid the need to make all artifacts available locally to the product being tested. Additionally, editions were prepared using alternative public key and hash algorithms. PDTS was updated to feature unexpired artifacts, to drop Lightweight Directory Access Protocol (LDAP)-centric tests and to use RSA 2048 keys with SHA256 (instead of RSA 1024 with SHA1). While these were generated to support the GSTP, the artifacts are suitable for testing any [RFC 5280]-compliant certification path validation implementation.
 
@@ -404,13 +399,13 @@ MFPKI artifacts are cloned from the FPKI and do not have uniformly long validity
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 2.5	Sample Environment
+### Sample Environment
 
 A Linux virtual machine is available that features artifacts from the MFPKI, various PKITSv2 editions hosted using Apache httpd, and OpenSSL’s OCSP responder capabilities. The environment is intended to facilitate dynamic path discovery and avoid the need to manually provide artifacts to the RUT as a prerequisite for testing certification path validation capabilities.
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 2.6	Hosts File for Sample Environment
+### Hosts File for Sample Environment
 
 A sample hosts file for the URIs included in artifacts that comprise the MFPKI, various PKITSv2 editions, and PDTS is below: 
 
@@ -607,9 +602,9 @@ A sample hosts file for the URIs included in artifacts that comprise the MFPKI, 
 ```
 * [Back to Table of Contents](#table-of-contents)
 
-## 3 GSTP Usage
+## GSTP Usage
 
-### 3.1	Generating Test Scripts
+### Generating Test Scripts
 
 Use the script generator to generate test scripts targeting the desired artifact collection. The example below demonstrates the generation of test scripts targeting all six artifact collections located in `/home/user/gstp` with scripts written to `/home/user/test`. In this example, two _wantBacks_ will be requested in each SCVP request (except batch, for which the script generator automatically omits all _wantBacks_).
 
@@ -625,7 +620,7 @@ Delete any test scripts that are not of interest. For example, if not testing no
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 3.2	Executing GSTP Test Cases
+### Executing GSTP Test Cases
 
 The RUT must be configured with all necessary trust anchors, any non-default validation policies, and the hosts file targeting the hosting environment that will be used. The test client must be configured to interact with the responder (in the `vss.properties` file) and save logs to an appropriate location (via the `SCVP_OUTPUT_PATH` environment variable). 
 
@@ -633,37 +628,37 @@ After the RUT and client are configured, simply execute the desired test scripts
 
 * [Back to Table of Contents](#table-of-contents)
 
-### 3.3	Reviewing Logs
+### Reviewing Logs
 
 The test SCVP client is configured to emit six log streams, as described in the following subsections.
 
-#### 3.3.1 Summary Results
+#### Summary Results
 
 The summary results file is written to `results.csv` and contains a brief summary of test SCVP client execution. It includes friendly name for a test, the expected result, an indication of expected result achieved, and an indication of profile conformance evaluation.
 
-#### 3.3.2 Client Log
+#### Client Log
 
 The client log is written to `client.txt`. It contains additional detail not presented in the summary results. For example, an indication of which fields in an SCVP response caused profile-conformance evaluation failure.
 
-#### 3.3.3 Validation Failures Re-execution Script
+#### Validation Failures Re-execution Script
 
 The validation failures re-execution script is written to `validation_failures.txt`. It includes invocations of the test SCVP client to enable re-execution of test cases that failed to yield the expected result with regard to validation of the target certificate(s).
 
-#### 3.3.4 Profile Evaluation Failures Re-execution Script
+#### Profile Evaluation Failures Re-execution Script
 
 The profile failures re-execution script is written to `profile_failures.txt`. It includes invocations of the test SCVP client to enable re-execution of test cases that failed to yield the expected result with regard to evaluation of the SCVP response against the target SCVP profile.
 
-#### 3.3.5 Artifacts
+#### Artifacts
 
 Base64-encoded SCVP requests and responses corresponding to failed test cases are written to `artifacts.csv` to facilitate detailed analysis using a utility like `dumpasn1`. To capture all request and responses, pass the `--log_all_messages` flag to the client.
 
-#### 3.3.6 Debug
+#### Debug
 
 A debug log that includes all of the above, plus lower level library output, is emitted to aid in troubleshooting. The log information emitted by lower level libraries may include details that are not propagated back to the test client.
 
 * [Back to Table of Contents](#table-of-contents)
 
-## 4 Deploying Artifacts
+## Deploying Artifacts
 
 The test PKI artifacts are supplied in three forms:
 
@@ -671,7 +666,7 @@ The test PKI artifacts are supplied in three forms:
 * Installed on Virtual Machines (VMs) intended to be deployed locally
 * Installed on an Amazon Web Services (AWS) image, suitable for deployment as an Elastic Compute Cloud (EC2) instance.
 
-### 4.1	Local Virtual Machines
+### Local Virtual Machines
 
 Two VMs intended for local use are supplied. One includes the PCP tool used to generate the artifacts along with assorted other tools suitable for inspecting and testing them. It also includes a copy of the test harness and related utilities, ready to run to test an SCVP service.
 
@@ -679,7 +674,7 @@ The second VM includes a copy of all the artifacts and software configured to ho
 
 * [Back to Table of Contents](#table-of-contents)
 
-#### 4.1.1 Tools VM
+#### Tools VM
 
 The SCVP Tools VM is supplied in Open Virtualization Format (OVF). In addition to being used to generate artifacts, it can be used to administer the artifacts VM.
 
@@ -704,7 +699,7 @@ The Tools included:
 
 * [Back to Table of Contents](#table-of-contents)
 
-#### 4.1.2 Artifact-Hosting VM
+#### Artifact-Hosting VM
 
 The artifact-hosting VM supplied in OVF. It is intended to be run without a graphical interface of any kind. It needs to have one interface on the same network as the Tools VM and one interface on the same network as the RUT. The hosts file installed on the RUT must reference the IP address of this network interface.
 
@@ -751,11 +746,11 @@ If the RUT will be using OCSP as well as CRLs to check status, open a command pr
 ```
 * [Back to Table of Contents](#table-of-contents)
 
-### 4.2	Amazon Web Services Image
+### Amazon Web Services Image
 
 The AWS image is functionally identical to the local VM. Responders installed in the same AWS cloud can use its private IP address to access artifacts. Responders installed elsewhere can be added to the `scvp-artifact-hosting` security group and use the public IP of the `ficam-scvp-artifacts` VM.
 
-### 4.3	Artifact Archives
+### Artifact Archives
 
 Artifacts are also supplied in zip archives within the Tools VM, as well as published in the ficam-scvp-testing GitHub repository. These can be loaded into the SCVP responders per the vendor documentation for doing so.
 
