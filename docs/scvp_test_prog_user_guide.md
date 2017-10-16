@@ -1,27 +1,27 @@
 ### Table of Contents
-#### [OVERVIEW](#overview)
-##### [GSTP COMPONENT](#gstp-components)
-###### [Test SCVP Client](#test-scvp-client)
-###### [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
-###### [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
-###### [Test Artifacts](#test-artifacts)
-###### [Sample Environment](#sample-environment)
-###### [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
-##### [GSTP USAGE](#gstp-usage)
-###### [Generating Test Scripts](#generating-test-scripts)
-###### [Executing GSTP Test Cases](#executing-gstp-test-cases)
-###### [Reviewing Logs](#reviewing-logs)
-  * [Summary Results](#summary-results)
-  * [Client Log](#client-log)
-  * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
-  * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
-  * [Artifacts](#artifacts)
-  * [Debug](#debug)
-##### [DEPLOYING ARTIFACTS](#deploying-artifacts)
-###### [Local Virtual Machines](#local-virtual-machines)
-###### [Amazon Web Services Image](#amazon-web-services)
-###### [Artifact Archives](#artifact-archives)
-##### [BIBLIOGRAPHY](#bibliography)
+* [Overview](#overview)
+* [GSTP Component](#gstp-components)
+  * [Test SCVP Client](#test-scvp-client)
+  * [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
+  * [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
+  * [Test Artifacts](#test-artifacts)
+  * [Sample Environment](#sample-environment)
+  * [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
+* [GSTP Usage](#gstp-usage)
+  * [Generating Test Scripts](#generating-test-scripts)
+  * [Executing GSTP Test Cases](#executing-gstp-test-cases)
+  * [Reviewing Logs](#reviewing-logs)
+    * [Summary Results](#summary-results)
+    * [Client Log](#client-log)
+    * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
+    * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
+    * [Artifacts](#artifacts)
+    * [Debug](#debug)
+* [Deploying Artifacts](#deploying-artifacts)
+  * [Local Virtual Machines](#local-virtual-machines)
+  * [Amazon Web Services Image](#amazon-web-services-image)
+  * [Artifact Archives](#artifact-archives)
+* [References](#references)
 
 ## Overview
 
@@ -49,35 +49,35 @@ Three distinct sets of test artifacts will be used to test certification path de
 
 All Authority Information Access (AIA) and Certificate Revocation List (CRL) Distribution Point (DP) Uniform Resource Identifiers (URIs) included in the test artifacts' feature names <!--missing verb-->that are not routable on the public Internet. A Linux virtual machine that hosts artifacts via HTTP server and OCSP responder instances is available, along with a host file that can be tailored for use in resolving names during certification path processing.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ## GSTP Components
 
 ### Test SCVP Client
 
-The GSTP test client is based on an SCVP client available from GitHub.com/GSA at: [GSA/VSS](https://github.com/GSA/vss){:target="_blank"}._ <!--This link gives 404 error due to Private Repo.-->The GSTP client will also be available via GitHub at a TBD location. The command line parameters accepted by the client are as follows:
+The GSTP test client is based on an SCVP client available from GitHub.com/GSA at: [GSA/VSS](https://github.com/GSA/vss). The command line parameters accepted by the client are as follows:
 
 Parameter Name|Parameter Type|Description|
 ---|---|---|
 -h, --help|None|Show help message and exit|
-&nbsp;&nbsp;---------------------|--------------**_Basic Logistics_**---------------|----------------------------------&nbsp;&nbsp;|
+|**_Basic Logistics_**||
 --scvp_profile|{lightweight, long-term-record, batch}|Name of SCVP profile|
 -x, --expectSuccess|Boolean value {true, false}|Indicates whether success is expected when validating the --target_cert. Defaults to true|
 -l, --logging_conf|Full path and filename of log4j configuration file|Used to customize default logging behavior|
 -n, --test_case_name|String value|Friendly name of test case|
 -z, --signer_certs|Path to directory to receive certificate(s) used to validate SCVP responses|Save signer certificates as read from a validation policy response to a specified directory then exit|
 --log_all_messages|None|Log all requests and responses to the artifacts log, not just those from failed tests. Off by default.|
-&nbsp;&nbsp;---------------------|----------**_Target Certificate Details_**---------|----------------------------------&nbsp;&nbsp;|
+|**_Target Certificate Details_**||
 -c, --target_cert|Full path and filename of binary DER encoded certificate|Certificate presented to responder for validation; not used when 
 --scvp_profile is set to batch, required otherwise|
 -b, --batch_folder|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise|
 -t, --trust_anchor|Full path and filename of binary DER encoded certificate|Certificate presented to responder as trust anchor to use for validation; omitted from request by default|
 &#8209;&#8209;batch_folder_success|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to validate successfully|
 &#8209;&#8209;batch_folder_failure|Full path of folder containing binary DER encoded certificates|Certificates presented to responder for validation; used when --scvp_profile is set to batch, not used otherwise; all certificates are expected to fail validation|
-&nbsp;&nbsp;---------------------|------------**_SCVP Request Details_**-----------|----------------------------------&nbsp;&nbsp;|
+|**_SCVP Request Details_**||
 -v, --validation_policy|Object identifier value expressed in dot notation form (i.e., 1.2.3.4.5)|Validation policy to include in request; default value is 1.3.6.1.5.5.7.19.1|
 --wantBacks|One or more symbolic WantBack names {Cert, BestCertPath, RevocationInfo, PublicKeyInfo, AllCertPaths, EeRevocationInfo, CAsRevocationInfo}|WantBack value(s) to include in request; default is BestCertPath|
-&nbsp;&nbsp;---------------------|**_Certification Path Validation </br>Algorithm Inputs_**|----------------------------------&nbsp;&nbsp;|
+|**_Certification Path Validation Algorithm Inputs_**||
 -p, --certificate_policy|One or more object identifiers expressed in dot notation form (i.e., 1.2.3.4.5)|Certificate policies to use as the user supplied policy set; omitted from request by default|
 --inhibitAnyPolicy|Boolean value {true, false}|Boolean value to use as inhibitAnyPolicy; omitted from request by default|
 &#8209;&#8209;inhibitPolicyMapping|Boolean value {true, false}|Boolean value to use as inhibitPolicyMapping; omitted from request by default|
@@ -113,7 +113,7 @@ keytool -keystore /usr/local/tomcat/conf/vssTrustStore.jks -importcert -file /pa
 ```
 The test client will write logs to the location identified by the `SCVP_OUTPUT_PATH` environment variable.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Test SCVP Client Scripts and Script Generator
 
@@ -203,7 +203,7 @@ The resulting output will be a set of scripts, as listed below. For the MFPKI an
 *	PKITS_P384_NON_DEFAULT_lightweight.sh
 *	PKITS_P384_NON_DEFAULT_longterm.sh
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Test SCVP Client Script Runner
 
@@ -373,7 +373,7 @@ if __name__ == '__main__':
 
 This script will run all available scripts in the designated folder. To refrain from running certain scripts, simply delete or move them. For example, if not testing non-default validation policies, remove all of the scripts with _non-default_ in the name.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Test Artifacts
 
@@ -390,13 +390,13 @@ MFPKI|As observed (mostly RSA 2048)|As observed (mostly SHA256)|
 
 MFPKI artifacts are cloned from the FPKI and do not have uniformly long validity periods like PDTSv2 and PKITSv2. Some artifacts that are classified as “good” will expire over time. PITTv2 can be used to periodically spot-check so expired artifacts can be removed from service and/or re-refreshed using PKI Copy and Paste (PCP).
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Sample Environment
 
 A Linux virtual machine is available that features artifacts from the MFPKI, various PKITSv2 editions hosted using Apache httpd, and OpenSSL’s OCSP responder capabilities. The environment is intended to facilitate dynamic path discovery and avoid the need to manually provide artifacts to the RUT as a prerequisite for testing certification path validation capabilities.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Hosts File for Sample Environment
 
@@ -593,7 +593,7 @@ A sample hosts file for the URIs included in artifacts that comprise the MFPKI, 
 192.168.1.101	smime2.nist.gov.test
 # ********** End of hosts added by PCP VM preparation scripts **********
 ```
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ## GSTP Usage
 
@@ -611,7 +611,7 @@ Use the script generator to generate test scripts targeting the desired artifact
 ```
 Delete any test scripts that are not of interest. For example, if not testing non-default validation policies, delete those scripts. 
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Executing GSTP Test Cases
 
@@ -619,7 +619,7 @@ The RUT must be configured with all necessary trust anchors, any non-default val
 
 After the RUT and client are configured, simply execute the desired test scripts and review the results. Make sure to delete any output files prior to test execution, if desired, because output files will be appended to throughout execution. The test runner script can be used to handle log file management.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Reviewing Logs
 
@@ -649,7 +649,7 @@ Base64-encoded SCVP requests and responses corresponding to failed test cases ar
 
 A debug log that includes all of the above, plus lower level library output, is emitted to aid in troubleshooting. The log information emitted by lower level libraries may include details that are not propagated back to the test client.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ## Deploying Artifacts
 
@@ -665,7 +665,7 @@ Two VMs intended for local use are supplied. One includes the PCP tool used to g
 
 The second VM includes a copy of all the artifacts and software configured to host them at the locations referenced in the certificates and service OCSP responses.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 #### Tools VM
 
@@ -690,7 +690,7 @@ The Tools included:
 * Python 2 and Python 3
 * PyCharm Community Edition
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 #### Artifact-Hosting VM
 
@@ -737,7 +737,7 @@ If the RUT will be using OCSP as well as CRLs to check status, open a command pr
 ```
 # bash startall.sh 
 ```
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
 ### Amazon Web Services Image
 
@@ -747,9 +747,9 @@ The AWS image is functionally identical to the local VM. Responders installed in
 
 Artifacts are also supplied in zip archives within the Tools VM, as well as published in the ficam-scvp-testing GitHub repository. These can be loaded into the SCVP responders per the vendor documentation for doing so.
 
-* [Back to Table of Contents](#table-of-contents)
+[(Back to Table of Contents)](#table-of-contents)
 
-## Bibliography
+## References
 
 * [RFC 5055] Freeman, T., Housley, R., Malpani, A., Cooper, D., and W. Polk, "Server-Based Certificate Validation Protocol (SCVP)," December 2007.
 * [RFC 5280] Cooper, D., Santesson, S., Farrell, S., Boeyen, S., Housley, R., and Polk, W., "Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile," May 2008. 
