@@ -1,34 +1,27 @@
-### Revision History 
-
-Date|Version|Changes|
-:---:|:---:|---|
-08/11/2017|1.0|Final Publication|
-
 ### Table of Contents
-
-* [**OVERVIEW**](#overview)
-* [**GSTP COMPONENTS**](#gstp-components)
-* [Test SCVP Client](#test-scvp-client)
-* [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
-* [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
-* [Test Artifacts](#test-artifacts)
-* [Sample Environment](#sample-environment)
-* [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
-* [**GSTP USAGE**](#gstp-usage)
-* [Generating Test Scripts](#generating-test-scripts)
-* [Executing GSTP Test Cases](#executing-gstp-test-cases)
-* [Reviewing Logs](#reviewing-logs)
+[### OVERVIEW](#overview)
+[### GSTP COMPONENT](#gstp-components)
+[Test SCVP Client](#test-scvp-client)
+[Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
+[Test SCVP Client Script Runner](#test-scvp-client-script-runner)
+[Test Artifacts](#test-artifacts)
+[Sample Environment](#sample-environment)
+[Hosts File for Sample Environment](#hosts-file-for-sample-environment)
+[**GSTP USAGE**](#gstp-usage)
+[Generating Test Scripts](#generating-test-scripts)
+[Executing GSTP Test Cases](#executing-gstp-test-cases)
+[Reviewing Logs](#reviewing-logs)
   * [Summary Results](#summary-results)
   * [Client Log](#client-log)
   * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
   * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
   * [Artifacts](#artifacts)
   * [Debug](#debug)
-* [**DEPLOYING ARTIFACTS**](#deploying-artifacts)
-* [Local Virtual Machines](#local-virtual-machines)
-* [Amazon Web Services Image](#amazon-web-services)
-* [Artifact Archives](#artifact-archives)
-* [**BIBLIOGRAPHY**](#bibliography)
+[**DEPLOYING ARTIFACTS**](#deploying-artifacts)
+[Local Virtual Machines](#local-virtual-machines)
+[Amazon Web Services Image](#amazon-web-services)
+[Artifact Archives](#artifact-archives)
+[**BIBLIOGRAPHY**](#bibliography)
 
 ## Overview
 
