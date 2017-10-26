@@ -183,8 +183,8 @@ python PkitsPdtsReduction.py -d <path to extracted zip>
 7. Import _PDTS end-entity certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the **_“End Entity Certs”_** folder within the reduced **_“Path Discovery Test Suite”_** folder. A total of 22 certificates should be imported.
 8. Import _PDTS trust anchor certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the _“Trust Anchor Certs”_ folder within the reduced _“Path Discovery Test Suite”_ folder. One additional certificate should be imported, resulting in 23 certificates total.
 9. Save the PCP database.
-10. Make sure both **_Recursive URI harvest_** and **_Skip LDAP URIs during harvest_** are checked. Harvest additional certificates by clicking the _Harvest_ certificates from the **_URIs_** button on the **_Certificates_** tab. A total of 82 certificates should be present, along with 42 PKCS #7 messages.
-11. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked and then click **_Harvest CRLs_** to harvest CRLs. A total of 28 CRLs should be retrieved.
+10. Make sure both _Recursive URI harvest_ and _Skip LDAP URIs during harvest_ are checked. Harvest additional certificates by clicking the _Harvest_ certificates from the **_URIs_** button on the **_Certificates_** tab. A total of 82 certificates should be present, along with 42 PKCS #7 messages.
+11. Navigate to the **_CRLs_** tab. Make sure that _Skip LDAP URIs during harvest_ is checked and then click **_Harvest CRLs_** to harvest CRLs. A total of 28 CRLs should be retrieved.
 12. Save the PCP database and close it.
 
 ##### 2.2.2.2	Basic PDTS clone generation
@@ -209,7 +209,7 @@ mkdir <path>/PDTS/renamed
 python ClonedPkitsNameFixer.py -d “/<path>/Path Discovery Test Suite” -e /<path>/PDTS -f /<path>/PDTS/renamed
 ```
 13. Delete spurious folders created with names of PKITS path settings.
-14. Export and save a list of hosts using the **_Analysis_ &gt; _Reports_ &gt; _List hosts_** menu item.
+14. Export and save a list of hosts using the **Analysis_ &gt; _Reports_ &gt; _List hosts** menu item.
 
 #### 2.2.3 Outputs
 
@@ -240,12 +240,17 @@ To prepare a MFPKI data set for cloning, perform the following steps:
 
 ##### 2.3.2.2	Basic MFPKI clone generation
 
+**CELESTE STOPPED HERE**
+
 To prepare a cloned MFPKI data set, perform the following steps:
 
-1. Open the PCP database prepared in section 2.2.2.1.
-2. Select the Tools->Delete Fake PKI and Tools->Delete Fake Keys to ensure new keys and artifacts will be generated. Select Tools->Delete all fake items if there are no custom configurations you wish to retain.
-3. Navigate to the Generator Configuration tab. On the Hosts sub-tab select the URI name form. Click the Append default suffix to each button. Enter test into the resulting dialog and click OK. The names from the left column should now appear in the right column with a .test suffix appending. There is no need to alter the RFC822 or other name forms since testing these name forms is not planned and these name forms have no hosting component.
-4. Navigate to the Basic Generator Configuration sub-tab. Make sure cn=default is selected as the Configuration Name then click the Generate configuration for selected configuration option. Click all four check boxes associated with alterations to cause end entity personal information to be altered.
+1. Open the **_PCP database_** prepared in section 2.2.2.1.
+2. Select the **Tools &gt; Delete Fake PKI** and **Tools &gt; Delete Fake Keys** to ensure that new keys and artifacts will be generated. If there are no custom configurations you wish to retain, select **Tools &gt; Delete all fake items**.
+3. Navigate to the **Generator Configuration** tab. On the **Hosts** sub-tab, select the _URI name form_. Click the _Append default suffix_ to each button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms since testing these name forms is not planned and they have no hosting component.
+4. Navigate to the **Basic Generator Configuration** sub-tab. Make sure _cn=default_ is selected as the _Configuration Name_ and then click the **Generate configuration for selected configuration** option. Click all four checkboxes associated with alterations to cause end entity personal information to be altered.
+
+**CELESTE STOPPED HERE**
+
 5. Make sure the first two options on the Options->Preferences->Basic Generation Options tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
 6. Navigate to the DN Map sub-tab. Go through the list and for each top level RDN (i.e., c=US, c=CA, dc=com, etc.) modify the name to indicate a test certificate by adding either o=Mock or dc=Mock adjacent to the terminal RDN.
 7. Select the Tools->Generate PKI menu item to generate new key pairs and signed artifacts.
@@ -438,7 +443,7 @@ id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 41 }
 
 Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. This appendix describes steps to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.
 
-**<TODO>** **NOTE: IT LOOKS LIKE THERE ARE MISSING STEPS (referred to in paragraph above)**
+**<TODO>** **NOTE to Authors:  STEPS ARE MISSING (referred to in previous paragraph).**
 
 ## Appendix F – Updating PKITS to feature AIA and CRL DP
 
