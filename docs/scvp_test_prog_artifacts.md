@@ -87,8 +87,8 @@ To prepare a cloned PKITS data set, perform the following steps:
 4. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
 5. Wait. (Key generation will take some time.)
 6. Save the PCP database (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
-7. Review the **_Has Fake_** column on the Certificates and CRLs tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
-8. Select the **_Tools_ &gt; _Export PKI_** menu item.
+7. Review the **_Has Fake_** column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
+8. Select the **_Tools_ &gt; _Export PKI_** menu item.               &&**CELESTE CHECK NEXT STEPS**&&
 9. Rename exported folder to indicate the nature of cloned artifacts, if desired.
 10.	Copy the contents of the fake folder beneath the configured CRL folder to the exported folder, if desired.
 11.	Generate a copy of the cloned artifacts (using the original file names) using the `ClonedPkitsNameFixer` tool along with original PKITS data, cloned data, and a folder to receive renamed artifacts.
@@ -248,15 +248,12 @@ To prepare a cloned MFPKI data set, perform the following steps:
 2. Select the **Tools &gt; Delete Fake PKI** and **Tools &gt; Delete Fake Keys** to ensure that new keys and artifacts will be generated. If there are no custom configurations you wish to retain, select **Tools &gt; Delete all fake items**.
 3. Navigate to the **Generator Configuration** tab. On the **Hosts** sub-tab, select the _URI name form_. Click the _Append default suffix_ to each button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms since testing these name forms is not planned and they have no hosting component.
 4. Navigate to the **Basic Generator Configuration** sub-tab. Make sure _cn=default_ is selected as the _Configuration Name_ and then click the **Generate configuration for selected configuration** option. Click all four checkboxes associated with alterations to cause end entity personal information to be altered.
-
-**CELESTE STOPPED HERE**
-
-5. Make sure the first two options on the Options->Preferences->Basic Generation Options tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
-6. Navigate to the DN Map sub-tab. Go through the list and for each top level RDN (i.e., c=US, c=CA, dc=com, etc.) modify the name to indicate a test certificate by adding either o=Mock or dc=Mock adjacent to the terminal RDN.
-7. Select the Tools->Generate PKI menu item to generate new key pairs and signed artifacts.
-8. Wait (key generation will take some time).
-9. Save the PCP database (possible via Save As to provide a name indicative of algorithm orientation of clones).
-10. Review the Has Fake column on the Certificates and CRLs tabs and confirm all artifacts have been cloned. If not, review logs, determine cause, correct the issue and retry.
+5. Make sure the first two options on the **Options &gt; Preferences &gt; Basic Generation Options** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
+6. Navigate to the **DN Map** sub-tab. Go through the list and for each top-level RDN (i.e., c=US, c=CA, dc=com, etc.), modify the name to indicate a test certificate by adding either _o=Mock_ or _dc=Mock_ adjacent to the terminal RDN.
+7. Select the **Tools &gt; Generate PKI** menu item to generate new key pairs and signed artifacts.
+8. Wait. (Key generation will take some time.)
+9. Save the **_PCP database_** (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
+10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
 11. Select the Tools->Export PKI menu item.
 12. Rename exported folder to indicate nature of cloned artifacts, if desired.
 13. Copy contents of fake folder beneath configured CRL folder to the exported folder, if desired. 
