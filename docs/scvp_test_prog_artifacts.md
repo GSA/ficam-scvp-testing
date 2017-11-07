@@ -13,6 +13,7 @@ Date|Version|Changes|
 ### Table of Contents **REMEMBER TO ADD "BACK TO TABLE OF CONTENTS" LINK AFTER SECTIONS**
 
 **ADD TOC IN + a bunch of Appendices**
+**Spell-Check and Rendering**
 
 ## 1 Overview
 
@@ -89,7 +90,7 @@ To prepare a cloned PKITS data set, perform the following steps:
 6. Save the PCP database (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
 7. Review the **_Has Fake_** column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
 8. Select the **_Tools_ &gt; _Export PKI_** menu item.               &&**CELESTE CHECK NEXT STEPS**&&
-9. Rename exported folder to indicate the nature of cloned artifacts, if desired.
+9. Rename the exported folder to indicate the nature of cloned artifacts, if desired.
 10.	Copy the contents of the fake folder beneath the configured CRL folder to the exported folder, if desired.
 11.	Generate a copy of the cloned artifacts (using the original file names) using the `ClonedPkitsNameFixer` tool along with original PKITS data, cloned data, and a folder to receive renamed artifacts.
 
@@ -104,7 +105,7 @@ a. python BreakSig.py -i /Users/cwallace/Desktop/SCVP_artifacts/PKITS_<alg>_rena
 ```
 ##### 2.1.2.3	Customizing generation rules for RSA-2048
 
-No customization rules are required. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-2048 orientation. Next, simply execute the steps from section 2.1.2.2.
+No customization rules are required. Open the database prepared in section 2.1.2.1 and then save a database copy using a name that indicates RSA-2048 orientation. Next, simply execute the steps from section 2.1.2.2.
 
 ##### 2.1.2.4	Customizing generation rules for RSA-4096
 
@@ -137,7 +138,7 @@ The results will include a complete set of PKITS artifacts with names that match
 
 2.2.1	Inputs
 
-The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ provides certificates and CRLs that will be input into PCP to facilitate harvesting and then cloning. (At the NIST website, see the **Path Validation Testing Program** section and click on the _test data_ link.) The bulk of PDTS is focused on LDAP. Since LDAP is not a target for the SCVP Test Program, these artifacts need not be cloned. The following artifacts will be cloned (all other artifacts will be omitted):
+The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ provides certificates and CRLs that will be input into PCP to facilitate harvesting and then cloning. (At the NIST website, see the **Path Validation Testing Program** section and click the _test data_ link.) The bulk of PDTS is focused on LDAP. Since LDAP is not a target for the SCVP Test Program, these artifacts need not be cloned. The following artifacts will be cloned (all other artifacts will be omitted):
 
 *	`BasicHTTPURIPathDiscoveryOU1EE1.crt`
 *	`BasicHTTPURIPathDiscoveryOU1EE2.crt`
@@ -191,13 +192,13 @@ python PkitsPdtsReduction.py -d <path to extracted zip>
 
 To prepare a cloned PDTS data set, perform the following steps:
 
-1. Open the **_PCP database_** prepared in section 2.2.2.1.
+1. Open the PCP database prepared in section 2.2.2.1.
 2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_**, if there are no custom configurations you wish to retain.
 3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the **_URI_** name form. Click the _Append_ default suffix to each button. Enter _test_ into the resulting dialog and click OK. The names from the left column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC 822 domain, and there are no other hosts listed for other name forms.
 4. Make sure that the first two options on the **_Option_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
 5. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
 6. Wait. (Key generation will take some time.)
-7. Save the _PCP database_ (via _Save As_ to provide a name indicative of algorithm orientation of clones).
+7. Save the PCP database (via _Save As_ to provide a name indicative of algorithm orientation of clones).
 8. Review the **_Has Fake_** column on the **_Certificates_** and **_CRLs_** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, and correct the issue and retry.
 9. Select the **_Tools_ &gt; _Export PKI_** menu item.
 10. Rename the exported folder to indicate the nature of cloned artifacts, if desired.
@@ -254,8 +255,8 @@ To prepare a cloned MFPKI data set, perform the following steps:
 8. Wait. (Key generation will take some time.)
 9. Save the **_PCP database_** (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
 10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
-11. Select the Tools->Export PKI menu item.
-12. Rename exported folder to indicate nature of cloned artifacts, if desired.
+11. Select the **Tools &gt; Export** PKI menu item.
+12. Rename the exported folder to indicate nature of cloned artifacts, if desired.
 13. Copy contents of fake folder beneath configured CRL folder to the exported folder, if desired. 
 14. Export and save a list of hosts using the Analysis->Reports->List hosts menu item.
 
