@@ -72,9 +72,9 @@ To prepare a PKITS data set for cloning, perform the following steps:
 2. Extract the zip file.
 3. Resign the necessary artifacts (`InvalidEESignatureTest3EE.crt` and `BadSignedCACert.crt`) using the steps given in _Appendix B_.
 4. Use the `PkitsPdtsReduction` utility to omit the DSA artifacts:&nbsp;&nbsp;`python PkitsPdtsReduction.py -v` (path to extracted zip).
-5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
-6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ -&gt; _Create/edit/view_** configuration.) 
-7. Create a new _PCP database_: **_File_ &gt; _New PCP Database_**.
+5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **Options &gt; Preferences &gt;** _CRLs folder_.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
+6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **Options &gt; Preferences &gt; LoggingConfiguration &gt; Create/edit/view** configuration.) 
+7. Create a new _PCP database_: **File &gt; New PCP Database**.
 
 **CELESTE STOPPED RECHECKING FORMATTING HERE**
 
