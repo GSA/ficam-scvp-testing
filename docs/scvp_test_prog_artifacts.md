@@ -73,15 +73,16 @@ To prepare a PKITS data set for cloning, perform the following steps:
 3. Resign the necessary artifacts (`InvalidEESignatureTest3EE.crt` and `BadSignedCACert.crt`) using the steps given in _Appendix B_.
 4. Use the `PkitsPdtsReduction` utility to omit the DSA artifacts:&nbsp;&nbsp;`python PkitsPdtsReduction.py -v` (path to extracted zip).
 5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **Options &gt; Preferences &gt;** _CRLs folder_.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
-6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **Options &gt; Preferences &gt; LoggingConfiguration &gt; Create/edit/view** configuration.) 
+6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **Options &gt; Preferences &gt; Logging Configuration &gt; Create/edit/view** configuration.) 
 7. Create a new _PCP database_: **File &gt; New PCP Database**.
+8. Import PKITS certificates by navigating to the **Certificates** tab and clicking the **Import Certificates** button and browsing to the certs folder within the reduced PKITS_data folder. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
+9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **Import Certificate** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
+10.	Import PKITS CRLs by navigating to the **CRLs** tab and clicking the **Import CRLs** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
+11. Save the _PCP database_ and close it.
+
 
 **CELESTE STOPPED RECHECKING FORMATTING HERE**
 
-8. Import PKITS certificates by navigating to the **_Certificates_** tab and clicking the **_Import Certificates_** button and browsing to the certs folder within the reduced PKITS_data folder. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
-9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **_Import Certificate_** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
-10.	Import PKITS CRLs by navigating to the **_CRLs_** tab and clicking the **_Import CRLs_** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
-11. Save the PCP database and close it.
 
 ##### 2.1.2.2	Basic PKITS clone generation
 
