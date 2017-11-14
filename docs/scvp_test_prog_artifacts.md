@@ -10,6 +10,8 @@ Date|Version|Changes|
 :---:|:---:|---|
 08/08/2017|1.0|Final Publication|
 
+**Normal Nav Block as we use for Playbooks?  Ask Jordan.**
+
 ### Table of Contents **REMEMBER TO ADD "BACK TO TABLE OF CONTENTS" LINK AFTER SECTIONS**
 
 **ADD TOC IN + a bunch of Appendices**
@@ -23,9 +25,9 @@ Three distinct sets of test artifacts will be used to test certification path de
 
 1. NIST’s Public Key Infrastructure (PKI) Interoperability Test Suite v2 (PKITSv2)
 2. NIST’s Path Development Test Suite v2 (PDTSv2)
-3. Mock-Federal PKI (MFPKI)<!--Test Suite?-->
+3. Mock-Federal PKI (MFPKI)
 
-The remainder of this document describes the **||nature||** of each artifact set and the procedures needed to generate the artifacts. These artifacts are generated using the PKI Copy and Paste (PCP) utility. For PKITS, PCP is used to generate the test artifacts containing algorithms and key sizes other than RSA-2048. For PDTS, PCP is used to refresh an expired test suite and to modify the URLs used for hosting. For MFPKI, PCP is used to generate artifacts of comparable complexity to the production FPKI. The following table describes the targeted PKITS and PDTS Test Suites:
+The remainder of this document describes the nature of each artifact set and the procedures needed to generate the artifacts. These artifacts are generated using the PKI Copy and Paste (PCP) utility. For PKITS, PCP is used to generate the test artifacts containing algorithms and key sizes other than RSA-2048. For PDTS, PCP is used to refresh an expired test suite and to modify the URLs used for hosting. For MFPKI, PCP is used to generate artifacts of comparable complexity to the production FPKI. The following table describes the targeted PKITS and PDTS Test Suites:
 
 Test Suite|Public Key Details|Hash Algorithm|Hosting Strategy|
 ---|:---:|:---:|:---|
@@ -70,9 +72,12 @@ To prepare a PKITS data set for cloning, perform the following steps:
 2. Extract the zip file.
 3. Resign the necessary artifacts (`InvalidEESignatureTest3EE.crt` and `BadSignedCACert.crt`) using the steps given in _Appendix B_.
 4. Use the `PkitsPdtsReduction` utility to omit the DSA artifacts:&nbsp;&nbsp;`python PkitsPdtsReduction.py -v` (path to extracted zip).
-5. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. (The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder.) Delete the contents of the "real" and "fake directories beneath the location identified in the CRL folder setting.
-6. Optionally, delete the log file (location specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ -&gt; _Create/edit/view_** configuration). 
-7. Create a new PCP database: **_File_ &gt; _New PCP Database_**.
+5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
+6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ -&gt; _Create/edit/view_** configuration.) 
+7. Create a new _PCP database_: **_File_ &gt; _New PCP Database_**.
+
+**CELESTE STOPPED RECHECKING FORMATTING HERE**
+
 8. Import PKITS certificates by navigating to the **_Certificates_** tab and clicking the **_Import Certificates_** button and browsing to the certs folder within the reduced PKITS_data folder. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
 9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **_Import Certificate_** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
 10.	Import PKITS CRLs by navigating to the **_CRLs_** tab and clicking the **_Import CRLs_** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
@@ -89,28 +94,28 @@ To prepare a cloned PKITS data set, perform the following steps:
 5. Wait. (Key generation will take some time.)
 6. Save the PCP database (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
 7. Review the **_Has Fake_** column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
-8. Select the **_Tools_ &gt; _Export PKI_** menu item.               &&**CELESTE CHECK NEXT STEPS**&&
-9. Rename the exported folder to indicate the nature of cloned artifacts, if desired.
-10.	Copy the contents of the fake folder beneath the configured CRL folder to the exported folder, if desired.
-11.	Generate a copy of the cloned artifacts (using the original file names) using the `ClonedPkitsNameFixer` tool along with original PKITS data, cloned data, and a folder to receive renamed artifacts.
+8. Select the **_Tools_ &gt; _Export PKI_** menu item.
+9. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
+10.	Copy the contents of the _fake folder_ beneath the configured _CRL folder_ to the _exported folder_, if desired.
+11.	Generate a copy of the cloned artifacts (using the original file names) by using the `ClonedPkitsNameFixer` tool, along with the original PKITS data, cloned data, and a folder to receive the renamed artifacts.
 
 ```
 a. mkdir <path>/PKITS_<alg>/renamed 
 b. python ClonedPkitsNameFixer.py -a /<path>/1.0.1/PKITS_data -b /<path>/PKITS_<alg> -c /<path>/PKITS_<alg>/renamed
 ```
-12.	Break the signatures on necessary artifacts using the `BreakSig` utility:
+12.	Break the signatures on the necessary artifacts using the `BreakSig` utility:
 
 ```
 a. python BreakSig.py -i /Users/cwallace/Desktop/SCVP_artifacts/PKITS_<alg>_renamed/
 ```
 ##### 2.1.2.3	Customizing generation rules for RSA-2048
 
-No customization rules are required. Open the database prepared in section 2.1.2.1 and then save a database copy using a name that indicates RSA-2048 orientation. Next, simply execute the steps from section 2.1.2.2.
+No customization rules are required. Open the database prepared in section 2.1.2.1, and then save a database copy using a name that indicates RSA-2048 orientation. Next, simply execute the steps from section 2.1.2.2.
 
 ##### 2.1.2.4	Customizing generation rules for RSA-4096
 
-1. Open the database prepared in section 2.1.2.1 and then save a copy of the database using a name that indicates RSA-4096 orientation.
-2. Navigate to the **_Generator Configuration_** tab and then to the Algorithm Map sub-tab. 
+1. Open the database prepared in section 2.1.2.1, and then save a copy of the database using a name that indicates RSA-4096 orientation.
+2. Navigate to the **_Generator Configuration_** tab and then to the **Algorithm Map** sub-tab. 
 3. In the **Mapped Algorithm** column, choose _“Algorithm rsaEncryption; Key size: 4096; Exponent: 0x010001”_ as the mapped value for _“Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001”,_ which should be the only item in the **_Original Algorithm_** column.
 4. Save the database and then execute the steps in section 2.1.2.2. (**Note:**&nbsp;&nbsp;Key generation for RSA-4096 bit keys is extremely slow.) 
 
@@ -120,7 +125,7 @@ No customization rules are required. Open the database prepared in section 2.1.2
 2. Navigate to the **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab **&gt;** **_Public key algorithms_**. 
 3. In the **_Mapped Algorithm_** column, choose “_Algorithm id_ecPublicKey; Key size: 256; Curve: secp256r1_” as the mapped value for “_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”, which should be the only item in the **_Original Algorithm_** column. 
 4. Change the **_Type_** to _Digital signature algorithms_, and choose “_ecdsa_with_SHA256_” in the **_Mapped Algorithm_** column for the “_Algorithm: sha256WithRSAEncryption; Parameters: present_” option, which should be the only item in the **_Original Algorithm_** column.
-5. Save the database then execute the steps in section 2.1.2.2.
+5. Save the database and then execute the steps in section 2.1.2.2.
 
 ##### 2.1.2.6	Customizing generation rules for ECDSA P384
 
@@ -128,7 +133,7 @@ No customization rules are required. Open the database prepared in section 2.1.2
 2. Navigate to **_Generator Configuration_** tab **&gt;** **_Algorithm Map_** sub-tab. 
 3. In the **_Mapped Algorithm_** column, choose “_Algorithm id_ecPublicKey; Key size: 384; Curve: secp384r1_” as the mapped value for “_Algorithm rsaEncryption; Key size: 2048; Exponent: 0x010001_”, which should be the only item in the **_Original Algorithm_** column. 
 4. Change the **_Type_** to _Digital signature algorithms_ and choose “_ecdsa_with_SHA384_” in the **_Mapped Algorithm_** column for the “_Algorithm: sha256WithRSAEncryption; Parameters: present_” option, which should be the only item in the **_Original Algorithm_** column.
-5. Save the database then execute the steps in section 2.1.2.2.
+5. Save the database and then execute the steps in section 2.1.2.2.
 
 #### 2.1.3	Outputs
 
@@ -164,7 +169,7 @@ The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://
 *	`RudimentaryHTTPURIPathDiscoveryTest8EE.crt`
 *	`BasicHTTPURITrustAnchorRootCert.crt`
 
-As with PKITS, since S/MIME is not a target for the SCVP testing program, the S/MIME folder can be ignored entirely.
+As with PKITS, since S/MIME is not a target for the SCVP Test Program, the S/MIME folder can be ignored entirely.
 
 #### 2.2.2	Generation Procedures
 
@@ -178,32 +183,32 @@ To prepare a PDTS data set for cloning, perform the following steps:
 ```
 python PkitsPdtsReduction.py -d <path to extracted zip>
 ```
-4. Clean the CRLs folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the "real" and "fake" directories beneath the location identified in the CRL folder setting.
+4. Clean the CRLs folders used by PCP to store _real_ CRLs and _fake_ CRLs. The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the _real_ and _fake_ directories beneath the location identified in the CRL folder setting.
 5. Optionally, delete the log file (location specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _LoggingConfiguration_ &gt; _Create/edit/view_** configuration).
-6. Create a new PCP database: **_File_ &gt; _New PCP Database_**.
-7. Import _PDTS end-entity certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the **_“End Entity Certs”_** folder within the reduced **_“Path Discovery Test Suite”_** folder. A total of 22 certificates should be imported.
-8. Import _PDTS trust anchor certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the _“Trust Anchor Certs”_ folder within the reduced _“Path Discovery Test Suite”_ folder. One additional certificate should be imported, resulting in 23 certificates total.
-9. Save the PCP database.
+6. Create a new _PCP database_: **_File_ &gt; _New PCP Database_**.
+7. Import _PDTS end-entity certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the _End Entity Certs_ folder within the reduced _Path Discovery Test Suite_ folder. A total of 22 certificates should be imported.
+8. Import _PDTS trust anchor certificates_ by navigating to the **_Certificates_** tab, clicking the **_Import Certificates_** button, and browsing to the _Trust Anchor Certs_ folder within the reduced _Path Discovery Test Suite_ folder. One additional certificate should be imported, resulting in 23 certificates total.
+9. Save the _PCP database_.
 10. Make sure both _Recursive URI harvest_ and _Skip LDAP URIs during harvest_ are checked. Harvest additional certificates by clicking the _Harvest_ certificates from the **_URIs_** button on the **_Certificates_** tab. A total of 82 certificates should be present, along with 42 PKCS #7 messages.
 11. Navigate to the **_CRLs_** tab. Make sure that _Skip LDAP URIs during harvest_ is checked and then click **_Harvest CRLs_** to harvest CRLs. A total of 28 CRLs should be retrieved.
-12. Save the PCP database and close it.
+12. Save the _PCP database_ and close it.
 
 ##### 2.2.2.2	Basic PDTS clone generation
 
 To prepare a cloned PDTS data set, perform the following steps:
 
-1. Open the PCP database prepared in section 2.2.2.1.
+1. Open the _PCP database_ prepared in section 2.2.2.1.
 2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_**, if there are no custom configurations you wish to retain.
-3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the **_URI_** name form. Click the _Append_ default suffix to each button. Enter _test_ into the resulting dialog and click OK. The names from the left column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC 822 domain, and there are no other hosts listed for other name forms.
-4. Make sure that the first two options on the **_Option_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
+3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the **_URI_** name form. Click the _Append default suffix to each_ button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right-hand column with a _.test_ suffix appended. There is no need to alter the RFC822 domain, and there are no other hosts listed for other name forms.
+4. Make sure that the first two options on the **_Option_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure that expired certificates and stale CRLs are refreshed. This is a necessary step because PDTS was never updated by NIST after the initial data set expired.
 5. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
 6. Wait. (Key generation will take some time.)
-7. Save the PCP database (via _Save As_ to provide a name indicative of algorithm orientation of clones).
-8. Review the **_Has Fake_** column on the **_Certificates_** and **_CRLs_** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, and correct the issue and retry.
+7. Save the _PCP database_ (via **Save As** to provide a name indicative of algorithm orientation of clones).
+8. Review the _Has Fake_ column on the **_Certificates_** and **_CRLs_** tabs and confirm that all artifacts have been cloned. If not, review the logs, determine the cause, correct the issue, and retry.
 9. Select the **_Tools_ &gt; _Export PKI_** menu item.
-10. Rename the exported folder to indicate the nature of cloned artifacts, if desired.
-11. Copy the contents of the **_Fake_** folder beneath the configured **_CRL_** folder to the exported folder, if desired.
-12.	Generate a copy of the cloned artifacts using the original file names by using the **_ClonedPkitsNameFixer_** tool, along with original PDTS data, cloned data and a folder to receive renamed artifacts.
+10. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
+11. Copy the contents of the _Fake folder_ beneath the configured _CRL folder_ to the _exported folder_, if desired.
+12.	Generate a copy of the cloned artifacts (using the original file names) by using the **_ClonedPkitsNameFixer_** tool, along with the original PDTS data, the cloned data, and a folder to receive the renamed artifacts.
 
 ```
 mkdir <path>/PDTS/renamed
@@ -226,43 +231,43 @@ A set of 58 end entity certificates from various PKIs connected to the FPKI will
 
 ##### 2.3.2.1	Preparing MFPKI for cloning
 
-To prepare a MFPKI data set for cloning, perform the following steps:
+To prepare an _MFPKI data set_ for cloning, perform the following steps:
 
 1. Collect the desired end entity certificates beneath a single folder (there may be sub-folders) and download the latest FPKI Crawler .p7b file.
-2. Clean the **_CRLs_** folders used by PCP to store “real” CRLs and “fake” CRLs. The location is specified in the **_Options_ &gt; _Preferences_ &gt; _CRLs_** folder. Delete the contents of the "real" and "fake" directories beneath the location identified in the **_CRL_** folder setting.
+2. Clean the _CRLs_ folders used by PCP to store _real_ CRLs and _fake_ CRLs. The location is specified in the **_Options_ &gt; _Preferences_ &gt;** _CRLs_ folder. Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL_ folder setting.
 3. Optionally, delete log file (location specified in the dialog accessed via **_Options_ &gt; _Preferences_ &gt; _Logging Configuration_ &gt; _Create/edit/view configuration_**).
-4. Create a new **_PCP database_** (**_File_ &gt; _New PCP Database_**)
+4. Create a new _PCP database_ (**_File_ &gt; _New PCP Database_**)
 5. Import MFPKI end entity certificates by navigating to the **_Certificates_** tab; clicking the **_Import Certificates_** button; and browsing to the folder containing the end entity certificates collected in Step 1. Confirm that the number of certificates that were imported matches expectations.
 6. Import the CA certificates from the FPKI Crawler by navigating to the **_PKCS7 Messages_** tab; clicking the **_Import PKCS7 File…_** button; and browsing to the _CACertificatesValidatingToFederalCommonPolicy.p7b_ file.
-7. Save the **_PCP database_**.
-8. Make sure both **_Recursive URI harvest_** and **_Skip LDAP URIs during harvest_** are checked. Harvest additional certificates by clicking the **_Harvest certificates from URIs_** button on the **_Certificates_** tab. After that completes, click the **_Harvest OCSP responder certificates_** button.
-9. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked and then click **_Harvest CRLs_** to harvest the CRLs. 
-10. Save and then close the **_PCP database_**.
+7. Save the _PCP database_.
+8. Make sure that both **_Recursive URI harvest_** and **_Skip LDAP URIs during harvest_** are checked. Harvest additional certificates by clicking the **_Harvest certificates from URIs_** button on the **_Certificates_** tab. After that completes, click the **_Harvest OCSP responder certificates_** button.
+9. Navigate to the **_CRLs_** tab. Make sure that **_Skip LDAP URIs during harvest_** is checked, and then click **_Harvest CRLs_** to harvest the CRLs. 
+10. Save and then close the _PCP database_.
 
 ##### 2.3.2.2	Basic MFPKI clone generation
 
-**CELESTE STOPPED HERE**
-
 To prepare a cloned MFPKI data set, perform the following steps:
 
-1. Open the **_PCP database_** prepared in section 2.2.2.1.
+1. Open the _PCP database_ prepared in section 2.2.2.1.
 2. Select the **Tools &gt; Delete Fake PKI** and **Tools &gt; Delete Fake Keys** to ensure that new keys and artifacts will be generated. If there are no custom configurations you wish to retain, select **Tools &gt; Delete all fake items**.
-3. Navigate to the **Generator Configuration** tab. On the **Hosts** sub-tab, select the _URI name form_. Click the _Append default suffix_ to each button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms since testing these name forms is not planned and they have no hosting component.
+3. Navigate to the **Generator Configuration** tab. On the **Hosts** sub-tab, select the _URI name form_. Click the _Append default suffix to each_ button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right-hand column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms, since testing these name forms is not planned and they have no hosting component.
 4. Navigate to the **Basic Generator Configuration** sub-tab. Make sure _cn=default_ is selected as the _Configuration Name_ and then click the **Generate configuration for selected configuration** option. Click all four checkboxes associated with alterations to cause end entity personal information to be altered.
-5. Make sure the first two options on the **Options &gt; Preferences &gt; Basic Generation Options** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
+5. Make sure that the first two options on the **Options &gt; Preferences &gt; Basic Generation Options** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
 6. Navigate to the **DN Map** sub-tab. Go through the list and for each top-level RDN (i.e., c=US, c=CA, dc=com, etc.), modify the name to indicate a test certificate by adding either _o=Mock_ or _dc=Mock_ adjacent to the terminal RDN.
 7. Select the **Tools &gt; Generate PKI** menu item to generate new key pairs and signed artifacts.
 8. Wait. (Key generation will take some time.)
-9. Save the **_PCP database_** (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
-10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
+9. Save the **PCP database** (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
+10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs to confirm that all artifacts have been cloned. If not, review the logs, determine the cause, correct the issue, and retry.
 11. Select the **Tools &gt; Export** PKI menu item.
-12. Rename the exported folder to indicate nature of cloned artifacts, if desired.
-13. Copy contents of fake folder beneath configured CRL folder to the exported folder, if desired. 
-14. Export and save a list of hosts using the Analysis->Reports->List hosts menu item.
+12. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
+13. Copy the contents of the _fake folder_ beneath the configured _CRL folder_ to the _exported folder_, if desired. 
+14. Export and save a list of hosts using the **Analysis &gt; Reports &gt; List hosts** menu item.
 
 #### 2.3.3	Outputs
 
-The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting the artifacts.
+The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting of the artifacts.
+
+**CELESTE STOPPED HERE 11/23/2017.  Go back and take off italics for normal selections like **_Options &gt;_**, etc.
 
 ## Appendix A - Python Virtual Environment Creation
 
