@@ -1,5 +1,5 @@
-## GSA's FIPS 201 Evaluation Program: Server-Based Certificate Validation Protocol (SCVP) Responder Testing
-===========================================================================================================
+GSA's FIPS 201 Evaluation Program: Server-Based Certificate Validation Protocol (SCVP) Responder Testing
+========================================================================================================
 
 - [Introduction](#introduction) 
 - [Quick Start](#quick-start)
@@ -42,18 +42,18 @@ The primary components used for testing the SCVP responders consist of three set
 #### The Artifacts
 The artifact sets are updates to [NIST's PKI Test Suite (PKITS) and Path Discovery Test Suite (PDTS)](https://csrc.nist.gov/Projects/PKI-Testing) and a clone of the Federal PKI, called the Mock Federal PKI (MF PKI).
 
-##### Public Key Infrastructure Test Suite (PKITS)
+#### Public Key Infrastructure Test Suite (PKITS)
 PKITS was released by NIST over 15 years ago (then updated this decade to increase RSA key sizes and extend validity dates).
 - None of the certificates included in PKITS feature AIA or CRL DP extensions.
 - We've updated the artifacts to include AIA and CRL DP extensions; renamed them to PKITSv2.
 - This enables testing without manually provisioning artifacts to each validation engine under test.
 - In addition to adding extensions, PKITSv2 adds editions that feature different public key algorithms and sizes.
 
-##### Path Discovery Test Suite (PDTS)
+#### Path Discovery Test Suite (PDTS)
 Similar to PKITS, PDTS was released by NIST. Unlike PKITS, PDTS has not been maintained and all artifacts in the original test suite have expired.
 - PDTSv2 is a simple update to PDTS that increases the RSA key size, extends the validity dates and drops LDAP tests.
 
-##### Mock Federal PKI (MF PKI)
+#### Mock Federal PKI (MF PKI)
 The MF PKI is a new test suite, released for the first time as part of this work.
 - The MF PKI was generated using PCP.
 - A set of certificates from the Federal PKI were imported into PCP, additional certificates were harvested automatically by the tool then cloned equivalents were generated.
