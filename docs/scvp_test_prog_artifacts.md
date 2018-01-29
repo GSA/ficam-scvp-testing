@@ -78,24 +78,24 @@ To prepare a PKITS data set for cloning, perform the following steps:
 2. Extract the zip file.
 3. Resign the necessary artifacts (`InvalidEESignatureTest3EE.crt` and `BadSignedCACert.crt`) using the steps given in _Appendix B_.
 4. Use the `PkitsPdtsReduction` utility to omit the DSA artifacts:&nbsp;&nbsp;`python PkitsPdtsReduction.py -v` (path to extracted zip).
-5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **Options &gt; Preferences &gt;** _CRLs folder_.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
-6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **Options &gt; Preferences &gt; Logging Configuration &gt; Create/edit/view** configuration.) 
-7. Create a new _PCP database_: **File &gt; New PCP Database**.
-8. Import PKITS certificates by navigating to the **Certificates** tab and clicking the **Import Certificates** button and browsing to the certs folder within the reduced PKITS_data folder. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
-9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **Import Certificate** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
-10.	Import PKITS CRLs by navigating to the **CRLs** tab and clicking the **Import CRLs** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
+5. Clean the _CRLs folders_ used by _PCP_ to store _real CRLs_ and _fake CRLs_. (The location is specified in **_Options_ &gt; _Preferences_ &gt; _CRLs folder_**.) Delete the contents of the _real_ and _fake_ directories beneath the location identified in the _CRL folder_ setting.
+6. Optionally, delete the log file. (Its location is specified in the dialog box accessed via **_Options_ &gt; _Preferences_ &gt; _Logging Configuration_ &gt; _Create/edit/view_** configuration.) 
+7. Create a new _PCP database_: **_File_ &gt; _New PCP Database_**.
+8. Import PKITS certificates by navigating to the **_Certificates_** tab and clicking the **_Import Certificates_** button and browsing to the certs folder within the reduced _PKITS_data folder_. (**Note:**&nbsp;nbsp;400 certificates should be imported.)
+9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **_Import Certificate_** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
+10.	Import PKITS CRLs by navigating to the **_CRLs_** tab and clicking the **_Import CRLs_** button and browsing to the _crls folder_ within the reduced _PKITS_data folder_. (This will simply copy the files to the _real folder_ beneath the configured _CRL folder_.) A total of 171 CRLs should be imported.
 11. Save the _PCP database_ and close it.
 
 ##### 2.1.2.2	Basic PKITS clone generation
 
 To prepare a cloned PKITS data set, perform the following steps:
 
-1. Open the PCP database prepared per section 2.1.2.1 and altered via any customizations from sections 2.1.2.3 through 2.1.2.6.
+1. Open the _PCP database_ prepared per section 2.1.2.1 and altered via any customizations from sections 2.1.2.3 through 2.1.2.6.
 2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure new keys and artifacts will be generated. Select **_Tools_ &gt; _Delete all fake items_** if there are no custom configurations you wish to retain. (Do not choose this option if generating other than RSA-2048.)
 3. Make sure all options on the **_Options_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are _unchecked_. Otherwise, some negative test cases may not be accurately cloned.
 4. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts. 
 5. Wait. (Key generation will take some time.)
-6. Save the PCP database (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
+6. Save the _PCP database_ (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
 7. Review the **_Has Fake_** column on the **Certificates** and **CRLs** tabs and confirm that all artifacts have been cloned. If not, review logs, determine cause, correct the issue, and retry.
 8. Select the **_Tools_ &gt; _Export PKI_** menu item.
 9. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
@@ -252,19 +252,19 @@ To prepare an _MFPKI data set_ for cloning, perform the following steps:
 To prepare a cloned MFPKI data set, perform the following steps:
 
 1. Open the _PCP database_ prepared in section 2.2.2.1.
-2. Select the **Tools &gt; Delete Fake PKI** and **Tools &gt; Delete Fake Keys** to ensure that new keys and artifacts will be generated. If there are no custom configurations you wish to retain, select **Tools &gt; Delete all fake items**.
-3. Navigate to the **Generator Configuration** tab. On the **Hosts** sub-tab, select the _URI name form_. Click the _Append default suffix to each_ button. Enter _test_ into the resulting dialog and click **OK**. The names from the left-hand column should now appear in the right-hand column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms, since testing these name forms is not planned and they have no hosting component.
-4. Navigate to the **Basic Generator Configuration** sub-tab. Make sure _cn=default_ is selected as the _Configuration Name_ and then click the **Generate configuration for selected configuration** option. Click all four checkboxes associated with alterations to cause end entity personal information to be altered.
-5. Make sure that the first two options on the **Options &gt; Preferences &gt; Basic Generation Options** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
-6. Navigate to the **DN Map** sub-tab. Go through the list and for each top-level RDN (i.e., c=US, c=CA, dc=com, etc.), modify the name to indicate a test certificate by adding either _o=Mock_ or _dc=Mock_ adjacent to the terminal RDN.
-7. Select the **Tools &gt; Generate PKI** menu item to generate new key pairs and signed artifacts.
+2. Select the **_Tools_ &gt; _Delete Fake PKI_** and **_Tools_ &gt; _Delete Fake Keys_** to ensure that new keys and artifacts will be generated. If there are no custom configurations you wish to retain, select **_Tools_ &gt; _Delete all fake items_**.
+3. Navigate to the **_Generator Configuration_** tab. On the **_Hosts_** sub-tab, select the _URI name form_. Click the _Append default suffix to each_ button. Enter _test_ into the resulting dialog and click **_OK_**. The names from the left-hand column should now appear in the right-hand column with a _.test_ suffix appended. There is no need to alter the RFC822 or other name forms, since testing these name forms is not planned and they have no hosting component.
+4. Navigate to the **_Basic Generator Configuration_** sub-tab. Make sure _cn=default_ is selected as the _Configuration Name_ and then click the **_Generate configuration for selected configuration_** option. Click all four checkboxes associated with alterations to cause end entity personal information to be altered.
+5. Make sure that the first two options on the **_Options_ &gt; _Preferences_ &gt; _Basic Generation Options_** tab are checked. This will ensure expired certificates and stale CRLs are refreshed. 
+6. Navigate to the **_DN Map_** sub-tab. Go through the list and for each top-level RDN (i.e., c=US, c=CA, dc=com, etc.), modify the name to indicate a test certificate by adding either _o=Mock_ or _dc=Mock_ adjacent to the terminal RDN.
+7. Select the **_Tools_ &gt; _Generate PKI_** menu item to generate new key pairs and signed artifacts.
 8. Wait. (Key generation will take some time.)
-9. Save the _PCP database_ (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
-10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs to confirm that all artifacts have been cloned. If not, review the logs, determine the cause, correct the issue, and retry.
-11. Select the **Tools &gt; Export** PKI menu item.
+9. Save the _PCP database_ (possible via **_Save As_** to provide a name indicative of algorithm orientation of clones).
+10. Review the _Has Fake_ column on the **_Certificates_** and **_CRLs_** tabs to confirm that all artifacts have been cloned. If not, review the logs, determine the cause, correct the issue, and retry.
+11. Select the **_Tools_ &gt; _Export_** PKI menu item.
 12. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
 13. Copy the contents of the _fake folder_ beneath the configured _CRL folder_ to the _exported folder_, if desired. 
-14. Export and save a list of hosts using the **Analysis &gt; Reports &gt; List hosts** menu item.
+14. Export and save a list of hosts using the **_Analysis_ &gt; _Reports_ &gt; _List hosts_** menu item.
 
 #### 2.3.3	Outputs
 
@@ -315,7 +315,7 @@ ResignCert.exe -p GoodCACert.p8
 ```
 After generating resigned artifacts, rename thee original files with a .omit file extension.
 
-## Appendix C - Using PITTv2 to Review Cloned Artifacts
+## Appendix C-Using PITTv2 to Review Cloned Artifacts
 
 The PKI Interoperability Test Tool version 2 (PITTv2) can be used to verify cloned artifacts. This section describes how to use the tool with the `PKITS.sdb` file provided as a sample. This .sdb file contains certification path validation settings that align with the settings defined in the PKITS documentation. The settings are defined in terms of several artifacts that are assumed to exist. The table below describes these artifacts. The trust anchor store files can all co-exist. The contents of the PKITS_data folder will need to be manually changed depending on the collection being verified. In other words, there is a security environment defined for each PKITS data set but there is only one set of path settings definitions that is shared across PKITS data sets. One could endeavor to define path settings definitions for each data set if desired.
 
@@ -346,7 +346,7 @@ Settings 10|1|1|0|
 
 If an artifact set is regenerated, the `.tas` file for that dataset must be updated to include the new trust anchor and to not include the old trust anchor.
 
-## Appendix D - Test SCVP Validation Policy Object Identifiers
+## Appendix D-Test SCVP Validation Policy Object Identifiers
 
 Given that the various PKITS data sets are not intended to be comingled, a distinct set of validation policy object identifiers has been defined for each data set for use on SCVP servers configured for testing. 
 
@@ -443,13 +443,13 @@ id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 40 }
 id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 41 }
 ```
 
-## Appendix E – Re-rooting the MFPKI Using Existing Test Root CA
+## Appendix E–Re-rooting the MFPKI Using Existing Test Root CA
 
 Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. **This appendix describes steps**<!--NO STEPS!--> to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.<!--Steps are referenced in 3rd sentence above, but there are no steps in this Appendix.-->
 
 **TO DO NOTE TO AUTHORS:  STEPS ARE MISSING.**
 
-## Appendix F – Updating PKITS to Feature AIA and CRL DP
+## Appendix F–Updating PKITS to Feature AIA and CRL DP
 
 NIST’s PKITS test data requires manual presentation of certificates and CRLs to the path validation client. When testing some SCVP servers, the level of effort necessary to manually provision hundreds of certificates and CRLs is quite high. To avoid expending effort on a per-server basis during testing, the PKITS data was recut to feature authorityInformationAccess (AIA) and crlDistributionPoints (CRL DP) extensions to enable responders to automatically retrieve the information. The updated data set can be used as an alternative to the NIST data in [section 2.1.2.1](#section-2.1.2.1).
 
@@ -461,13 +461,13 @@ To prepare the updated data, several new scripts and tools were developed:
 
 Several additional existing tools were used as well including the ResignCert and ResignCrl utilities built for DISA and the openssl command line utility. 
 
-## Appendix G – Sorting PKITS Data into Folders Based on Expected Results
+## Appendix G–Sorting PKITS Data into Folders Based on Expected Results
 
 The test client implements support for the lightweight, long-term and batch profiles defined in the “Treasury Validation Services: SCVP Request and Response Profile” document. The batch option requires support for processing requests containing up to 256 certificates. The MFPKI data set will be used for testing the upper boundary condition (because PKITS and PDTS lack sufficient numbers of end entity certificates). However, the MFPKI data set is intended to consist solely of valid certificates. To test processing a mixture of valid and invalid certificates, the PKITS data set is chunked into folders that indicate the expected results. 
 
 PKITS features 11 different path validation input possibilities. To facilitate exercising batch under different input scenarios, the certificates used within each possibility are subdivided into a folder indicating success is expected and a folder indicating failure is expected.  The PkitsBatchOrganizer.py script is used to chunk data into appropriate folders suitable for use as inputs to the test client during batch testing.
 
-## Appendix H – Tool Inventory
+## Appendix H–Tool Inventory
 
 This section describes each of the tools used to produce the data for the test program and for use during testing of products. The list of tools, sources, and purposes is as follows:
 
