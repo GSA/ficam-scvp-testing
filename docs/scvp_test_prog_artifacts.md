@@ -12,8 +12,8 @@ Date|Version|Changes|
 
 ### Table of Contents
 
-* [1-Overview](#1-overview)
-* [2-Test-Artifacts](#2-test-artifacts)
+* [1 Overview](#1-overview)
+* [2 Test Artifacts](#2-test-artifacts)
 * [Appendices](#appendices)
 
 
