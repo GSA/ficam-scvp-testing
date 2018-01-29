@@ -14,7 +14,9 @@ Date|Version|Changes|
 
 * [1 Overview](#1-overview)
 * [2 Test Artifacts](#2-test-artifacts)
+* [2.1 Public Key Infrastructure Interoperability Test Suite](#2.1-public-key-infrastructure-interoperability-test-suite)
 * [Appendices](#appendices)
+
 
 
 ## 1 Overview
@@ -42,7 +44,7 @@ PDTS|RSA-2048|SHA256|CITE-hosted|
 
 ## 2 Test Artifacts
 
-### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (ITS)
+### 2.1	Public Key Infrastructure Interoperability Test Suite
 
 #### 2.1.1 Inputs
 
