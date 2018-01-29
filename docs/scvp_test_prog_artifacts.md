@@ -10,9 +10,34 @@ Date|Version|Changes|
 :---:|:---:|---|
 08/08/2017|1.0|Final Publication|
 
-**Normal Nav Block as we use for Playbooks?  Ask Jordan.**
+### Table of Contents
 
-### Table of Contents **REMEMBER TO ADD "BACK TO TABLE OF CONTENTS" LINK AFTER SECTIONS**
+* [1-Overview](#1-overview)
+* [2-Test-Artifacts](#2-test-artifacts)
+  * [Test SCVP Client](#test-scvp-client)
+  * [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
+  * [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
+  * [Test Artifacts](#test-artifacts)
+  * [Sample Environment](#sample-environment)
+  * [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
+* [GSTP Usage](#gstp-usage)
+  * [Generating Test Scripts](#generating-test-scripts)
+  * [Executing GSTP Test Cases](#executing-gstp-test-cases)
+  * [Reviewing Logs](#reviewing-logs)
+    * [Summary Results](#summary-results)
+    * [Client Log](#client-log)
+    * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
+    * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
+    * [Artifacts](#artifacts)
+    * [Debug](#debug)
+
+## 2 Test Artifacts
+
+### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (PKITS)
+
+#### 2.1.1 Inputs
+
+
 
 **ADD TOC IN + a bunch of Appendices**
 **Spell-Check and Rendering**
@@ -79,10 +104,6 @@ To prepare a PKITS data set for cloning, perform the following steps:
 9. Find the _Invalid Missing basicConstraints EE Certificate Test 1_ certificate (certificate hash value `F5042289168F331674FCEE68D4170A0A640588D6`) and delete it. Click **Import Certificate** and browse to the `InvalidMissingbasicConstraintsTest1EE.crt` to re-import it. (This is necessary to establish the relationship to a certificate that was not imported as a Certification Authority [CA].)
 10.	Import PKITS CRLs by navigating to the **CRLs** tab and clicking the **Import CRLs** button and browsing to the crls folder within the reduced `PKITS_data` folder. (This will simply copy the files to the real folder beneath the configured CRL folder.) A total of 171 CRLs should be imported.
 11. Save the _PCP database_ and close it.
-
-
-**CELESTE STOPPED RECHECKING FORMATTING HERE**
-
 
 ##### 2.1.2.2	Basic PKITS clone generation
 
@@ -257,7 +278,7 @@ To prepare a cloned MFPKI data set, perform the following steps:
 6. Navigate to the **DN Map** sub-tab. Go through the list and for each top-level RDN (i.e., c=US, c=CA, dc=com, etc.), modify the name to indicate a test certificate by adding either _o=Mock_ or _dc=Mock_ adjacent to the terminal RDN.
 7. Select the **Tools &gt; Generate PKI** menu item to generate new key pairs and signed artifacts.
 8. Wait. (Key generation will take some time.)
-9. Save the **PCP database** (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
+9. Save the _PCP database_ (possible via **Save As** to provide a name indicative of algorithm orientation of clones).
 10. Review the _Has Fake_ column on the **Certificates** and **CRLs** tabs to confirm that all artifacts have been cloned. If not, review the logs, determine the cause, correct the issue, and retry.
 11. Select the **Tools &gt; Export** PKI menu item.
 12. Rename the exported folder to indicate the nature of the cloned artifacts, if desired.
@@ -267,8 +288,6 @@ To prepare a cloned MFPKI data set, perform the following steps:
 #### 2.3.3	Outputs
 
 The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting of the artifacts.
-
-**CELESTE STOPPED HERE 11/23/2017.  Go back and take off italics for normal selections like **_Options &gt;_**, etc.
 
 ## Appendix A - Python Virtual Environment Creation
 
@@ -447,7 +466,7 @@ id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 41 }
 
 Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. This appendix describes steps to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.
 
-**<TODO>** **NOTE to Authors:  STEPS ARE MISSING (referred to in previous paragraph).**
+**TO DO NOTE TO AUTHORS:  STEPS ARE MISSING.**
 
 ## Appendix F – Updating PKITS to feature AIA and CRL DP
 
