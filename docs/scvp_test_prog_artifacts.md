@@ -14,7 +14,7 @@ Date|Version|Changes|
 
 * [1-Overview](#1-overview)
 * [2-Test-Artifacts](#2-test-artifacts)
-  * [Test SCVP Client](#test-scvp-client)
+  * [2.1	Public Key Infrastructure Interoperability Test Suite](#2.1-public-key-infrastructure-interoperability-test-suite)
   * [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
   * [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
   * [Test Artifacts](#test-artifacts)
@@ -33,7 +33,7 @@ Date|Version|Changes|
 
 ## 2 Test Artifacts
 
-### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (PKITS)
+### 2.1	Public Key Infrastructure Interoperability Test Suite
 
 #### 2.1.1 Inputs
 
@@ -67,7 +67,7 @@ PDTS|RSA-2048|SHA256|CITE-hosted|
 
 ## 2 Test Artifacts
 
-### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (PKITS)
+### 2.1	Public Key Infrastructure Interoperability Test Suite
 
 #### 2.1.1 Inputs
 
