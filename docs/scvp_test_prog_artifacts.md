@@ -14,10 +14,7 @@ Date|Version|Changes|
 
 * [1 Overview](#1-overview)
 * [2 Test Artifacts](#2-test-artifacts)
-* [2.1 Public Key Infrastructure Interoperability](#2.1-public-key-infrastructure-interoperability)
 * [Appendices](#appendices)
-
-
 
 ## 1 Overview
 
@@ -44,7 +41,7 @@ PDTS|RSA-2048|SHA256|CITE-hosted|
 
 ## 2 Test Artifacts
 
-### 2.1	Public Key Infrastructure Interoperability
+### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (ITS)
 
 #### 2.1.1 Inputs
 
@@ -268,7 +265,7 @@ The result will include a complete set of PDTS artifacts with names for end enti
 
 ## Appendices
 
-## Appendix A-Python Virtual Environment Creation
+## Appendix A. Python Virtual Environment Creation
 
 Several of the tools used to prepare the SCVP test artifacts are written in Python. The tools have minimal dependencies and can be run in a relatively "bare-bones" Python 3 virtual environment. The following steps were used on a Mac OS X system<!--Assume Mac?--> with Python 3 installed in `/usr/local/bin`.
 
@@ -285,7 +282,7 @@ Install the glob2 package using the following command.
 ```
 pip install glob2
 ```
-## Appendix B-Resigning PKITS Certificates with Bad Signatures
+## Appendix B. Resigning PKITS Certificates with Bad Signatures
 
 PCP uses signatures to organize artifacts for cloning. In order for certificates with bad signatures to be successfully cloned, the artifacts must first be resigned. This will enable PCP to generate a clone. Signatures can be broken on the cloned artifacts using the BreakSig.py script.
 
@@ -313,7 +310,7 @@ ResignCert.exe -p GoodCACert.p8
 ```
 After generating resigned artifacts, rename thee original files with a .omit file extension.
 
-## Appendix C-Using PITTv2 to Review Cloned Artifacts
+## Appendix C. Using PITTv2 to Review Cloned Artifacts
 
 The PKI Interoperability Test Tool version 2 (PITTv2) can be used to verify cloned artifacts. This section describes how to use the tool with the `PKITS.sdb` file provided as a sample. This .sdb file contains certification path validation settings that align with the settings defined in the PKITS documentation. The settings are defined in terms of several artifacts that are assumed to exist. The table below describes these artifacts. The trust anchor store files can all co-exist. The contents of the PKITS_data folder will need to be manually changed depending on the collection being verified. In other words, there is a security environment defined for each PKITS data set but there is only one set of path settings definitions that is shared across PKITS data sets. One could endeavor to define path settings definitions for each data set if desired.
 
@@ -344,7 +341,7 @@ Settings 10|1|1|0|
 
 If an artifact set is regenerated, the `.tas` file for that dataset must be updated to include the new trust anchor and to not include the old trust anchor.
 
-## Appendix D-Test SCVP Validation Policy Object Identifiers
+## Appendix D. Test SCVP Validation Policy Object Identifiers
 
 Given that the various PKITS data sets are not intended to be comingled, a distinct set of validation policy object identifiers has been defined for each data set for use on SCVP servers configured for testing. 
 
@@ -441,13 +438,13 @@ id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 40 }
 id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 41 }
 ```
 
-## Appendix E–Re-rooting the MFPKI Using Existing Test Root CA
+## Appendix E. Re-Rooting the MFPKI Using Existing Test Root CA
 
 Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. **This appendix describes steps**<!--NO STEPS!--> to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.<!--Steps are referenced in 3rd sentence above, but there are no steps in this Appendix.-->
 
 **TO DO NOTE TO AUTHORS:  STEPS ARE MISSING.**
 
-## Appendix F–Updating PKITS to Feature AIA and CRL DP
+## Appendix F. Updating PKITS to Feature AIA and CRL DP
 
 NIST’s PKITS test data requires manual presentation of certificates and CRLs to the path validation client. When testing some SCVP servers, the level of effort necessary to manually provision hundreds of certificates and CRLs is quite high. To avoid expending effort on a per-server basis during testing, the PKITS data was recut to feature authorityInformationAccess (AIA) and crlDistributionPoints (CRL DP) extensions to enable responders to automatically retrieve the information. The updated data set can be used as an alternative to the NIST data in [section 2.1.2.1](#section-2.1.2.1).
 
@@ -459,13 +456,13 @@ To prepare the updated data, several new scripts and tools were developed:
 
 Several additional existing tools were used as well including the ResignCert and ResignCrl utilities built for DISA and the openssl command line utility. 
 
-## Appendix G–Sorting PKITS Data into Folders Based on Expected Results
+## Appendix G. Sorting PKITS Data into Folders Based on Expected Results
 
 The test client implements support for the lightweight, long-term and batch profiles defined in the “Treasury Validation Services: SCVP Request and Response Profile” document. The batch option requires support for processing requests containing up to 256 certificates. The MFPKI data set will be used for testing the upper boundary condition (because PKITS and PDTS lack sufficient numbers of end entity certificates). However, the MFPKI data set is intended to consist solely of valid certificates. To test processing a mixture of valid and invalid certificates, the PKITS data set is chunked into folders that indicate the expected results. 
 
 PKITS features 11 different path validation input possibilities. To facilitate exercising batch under different input scenarios, the certificates used within each possibility are subdivided into a folder indicating success is expected and a folder indicating failure is expected.  The PkitsBatchOrganizer.py script is used to chunk data into appropriate folders suitable for use as inputs to the test client during batch testing.
 
-## Appendix H–Tool Inventory
+## Appendix H. Tool Inventory
 
 This section describes each of the tools used to produce the data for the test program and for use during testing of products. The list of tools, sources, and purposes is as follows:
 
