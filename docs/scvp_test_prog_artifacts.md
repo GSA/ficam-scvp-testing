@@ -20,7 +20,7 @@ Date|Version|Changes|
 * [Appendix D-Test SCVP Validation Policy Object Identifiers](#appendix-d-test-scvp-validation-policy-object-identifiers)
 * [Appendix E–Re-rooting the MFPKI Using Existing Test Root CA](#appendix--e-–re-rooting-the-mfpki-using-existing-test-root-ca)
 * [Appendix F–Updating PKITS to Feature AIA and CRL DP](#appendix-f-updating-pkits-to-feature-aia-and-crl-dp)
-* [Appendix G-Sorting PKITS Data into Folders Based on Expected Results](#appendix-g-sorting-pkits-data-into-folders-based-on-expected- results)
+* [Appendix G-Sorting PKITS Data into Folders Based on Expected Results](#appendix-g-sorting-pkits-data-into-folders-based-on-expected-results)
 * [Appendix H–Tool Inventory](#appendix-h-tool-inventory)
 
 ## 1 Overview
