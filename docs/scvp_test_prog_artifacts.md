@@ -14,33 +14,14 @@ Date|Version|Changes|
 
 * [1-Overview](#1-overview)
 * [2-Test-Artifacts](#2-test-artifacts)
-  * [2.1	Public Key Infrastructure Interoperability Test Suite](#2.1-public-key-infrastructure-interoperability-test-suite)
-  * [Test SCVP Client Scripts and Script Generator](#test-scvp-client-scripts-and-script-generator)
-  * [Test SCVP Client Script Runner](#test-scvp-client-script-runner)
-  * [Test Artifacts](#test-artifacts)
-  * [Sample Environment](#sample-environment)
-  * [Hosts File for Sample Environment](#hosts-file-for-sample-environment)
-* [GSTP Usage](#gstp-usage)
-  * [Generating Test Scripts](#generating-test-scripts)
-  * [Executing GSTP Test Cases](#executing-gstp-test-cases)
-  * [Reviewing Logs](#reviewing-logs)
-    * [Summary Results](#summary-results)
-    * [Client Log](#client-log)
-    * [Validation Failures Re-execution Script](#validation-failures-re-execution-script)
-    * [Profile Evaluation Failures Re-execution Script](#profile-evaluation-failures-re-execution-script)
-    * [Artifacts](#artifacts)
-    * [Debug](#debug)
-
-## 2 Test Artifacts
-
-### 2.1	Public Key Infrastructure Interoperability Test Suite
-
-#### 2.1.1 Inputs
-
-
-
-**ADD TOC IN + a bunch of Appendices**
-**Spell-Check and Rendering**
+* [Appendix A-Python Virtual Environment Creation](#appendix-a-python-virtual-envionment-creation)
+* [Appendix B-Resigning PKITS Certificates with Bad Signatures](#appendix-b-resigning-pkits-certificates-with-bad-signatures)
+* [Appendix C-Using PITTv2 to Review Cloned Artifacts](#appendix-c-using-pittv2-to-review-cloned-artifacts)
+* [Appendix D-Test SCVP Validation Policy Object Identifiers](#appendix-d-test-scvp-validation-policy-object-identifiers)
+* [Appendix E–Re-rooting the MFPKI Using Existing Test Root CA](#appendix-e–re-rooting-the-mfpki-using-existing-test-root-ca)
+* [Appendix F–Updating PKITS to Feature AIA and CRL DP](#appendix-f-updating-pkits-to-feature-aia-and-crl-dp)
+* [Appendix G-Sorting PKITS Data into Folders Based on Expected Results](#appendix-g-sorting-pkits-dat-into-folders-based-on-expected results)
+* [Appendix H–Tool Inventory](#appendix-h-tool-inventory)
 
 ## 1 Overview
 
@@ -67,7 +48,7 @@ PDTS|RSA-2048|SHA256|CITE-hosted|
 
 ## 2 Test Artifacts
 
-### 2.1	Public Key Infrastructure Interoperability Test Suite
+### 2.1	Public Key Infrastructure (PKI) Interoperability Test Suite (ITS)
 
 #### 2.1.1 Inputs
 
@@ -163,7 +144,7 @@ The results will include a complete set of PKITS artifacts with names that match
 
 ### 2.2	Path Development Test Suite (PDTS)
 
-2.2.1	Inputs
+#### 2.2.1	Inputs
 
 The `PKITS_data.zip` file from [NIST Public Key Infrastructure Testing](https://csrc.nist.gov/projects/pki-testing){:target="_blank"}_ provides certificates and CRLs that will be input into PCP to facilitate harvesting and then cloning. (At the NIST website, see the **Path Validation Testing Program** section and click the _test data_ link.) The bulk of PDTS is focused on LDAP. Since LDAP is not a target for the SCVP Test Program, these artifacts need not be cloned. The following artifacts will be cloned (all other artifacts will be omitted):
 
@@ -289,7 +270,7 @@ To prepare a cloned MFPKI data set, perform the following steps:
 
 The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting of the artifacts.
 
-## Appendix A - Python Virtual Environment Creation
+## Appendix A-Python Virtual Environment Creation
 
 Several of the tools used to prepare the SCVP test artifacts are written in Python. The tools have minimal dependencies and can be run in a relatively "bare-bones" Python 3 virtual environment. The following steps were used on a Mac OS X system<!--Assume Mac?--> with Python 3 installed in `/usr/local/bin`.
 
@@ -306,7 +287,7 @@ Install the glob2 package using the following command.
 ```
 pip install glob2
 ```
-## Appendix B - Resigning PKITS Certificates with Bad Signatures
+## Appendix B-Resigning PKITS Certificates with Bad Signatures
 
 PCP uses signatures to organize artifacts for cloning. In order for certificates with bad signatures to be successfully cloned, the artifacts must first be resigned. This will enable PCP to generate a clone. Signatures can be broken on the cloned artifacts using the BreakSig.py script.
 
@@ -464,11 +445,11 @@ id-scvp-mfpki-def OBJECT IDENTIFIER ::= { id-scvp-mfpki 41 }
 
 ## Appendix E – Re-rooting the MFPKI Using Existing Test Root CA
 
-Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. This appendix describes steps to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.
+Before the MFPKI was available, test PKIs were generated using CA products and some combination of manual and automated artifact generation procedures. The trust anchors associated with these efforts are in wide enough use that tying the MFPKI to the existing trust anchors is desirable. **This appendix describes steps**<!--NO STEPS!--> to identity certificates signed by the cloned Federal Common Policy CA and cloned Federal Bridge CA 2016 so PKCS #10 requests can be generated using XCA to facilitate certificate issuance using the existing CA products.<!--Steps are referenced in 3rd sentence above, but there are no steps in this Appendix.-->
 
 **TO DO NOTE TO AUTHORS:  STEPS ARE MISSING.**
 
-## Appendix F – Updating PKITS to feature AIA and CRL DP
+## Appendix F – Updating PKITS to Feature AIA and CRL DP
 
 NIST’s PKITS test data requires manual presentation of certificates and CRLs to the path validation client. When testing some SCVP servers, the level of effort necessary to manually provision hundreds of certificates and CRLs is quite high. To avoid expending effort on a per-server basis during testing, the PKITS data was recut to feature authorityInformationAccess (AIA) and crlDistributionPoints (CRL DP) extensions to enable responders to automatically retrieve the information. The updated data set can be used as an alternative to the NIST data in [section 2.1.2.1](#section-2.1.2.1).
 
