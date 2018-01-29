@@ -14,14 +14,8 @@ Date|Version|Changes|
 
 * [1-Overview](#1-overview)
 * [2-Test-Artifacts](#2-test-artifacts)
-* [Appendix A-Python Virtual Environment Creation](#appendix-a-python-virtual-envionment-creation)
-* [Appendix B-Resigning PKITS Certificates with Bad Signatures](#appendix-b-resigning-pkits-certificates-with-bad-signatures)
-* [Appendix C-Using PITTv2 to Review Cloned Artifacts](#appendix-c-using-pittv2-to-review-cloned-artifacts)
-* [Appendix D-Test SCVP Validation Policy Object Identifiers](#appendix-d-test-scvp-validation-policy-object-identifiers)
-* [Appendix E–Re-rooting the MFPKI Using Existing Test Root CA](#appendix-e-re-rooting-the-mfpki-using-existing-test-root-ca)
-* [Appendix F–Updating PKITS to Feature AIA and CRL DP](#appendix-f-updating-pkits-to-feature-aia-and-crl-dp)
-* [Appendix G-Sorting PKITS Data into Folders Based on Expected Results](#appendix-g-sorting-pkits-data-into-folders-based-on-expected-results)
-* [Appendix H–Tool Inventory](#appendix-h-tool-inventory)
+* [Appendices](#appendices)
+
 
 ## 1 Overview
 
@@ -269,6 +263,8 @@ To prepare a cloned MFPKI data set, perform the following steps:
 #### 2.3.3	Outputs
 
 The result will include a complete set of PDTS artifacts with names for end entity and trust anchor certificates that match the original filenames. These materials can be used to prepare a VM hosting of the artifacts.
+
+## Appendices
 
 ## Appendix A-Python Virtual Environment Creation
 
