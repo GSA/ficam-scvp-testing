@@ -1,3 +1,5 @@
+This repository was archived on July 14, 2021 and will no longer be maintained. The SCVP testing category was [deprecated on April 30, 2019](https://ww.idmanagement.gov/sell/fipsannouncements/#category-removed-from-the-apl-april-2019). 
+
 GSA's FIPS 201 Evaluation Program: Server-Based Certificate Validation Protocol (SCVP) Responder Testing
 ========================================================================================================
 
